@@ -1,0 +1,28 @@
+.header{    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9.8rem;
+    padding: 0 3.6rem;
+    z-index: 999;
+    background: var(--color-white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+}
+
+.logotype{
+    width: auto;
+    height: 6.2rem;
+    cursor: pointer;
+    aspect-ratio: 1218/338;
+}
+
+@media (max-width: 39em){
+    .header{
+        height: 8rem;
+    }
+}

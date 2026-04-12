@@ -1,0 +1,62 @@
+
+.navigationList {
+    font-size: 2.4rem;
+    display: flex;
+    gap: 2.4rem;
+    list-style: none;
+}
+
+.navigationLink:link,
+.navigationLink:visited {
+    cursor: pointer;
+    position: relative;
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 48em) {
+    .hamburger {
+        display: block;
+    }
+
+    .navigation {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 9999;
+        width: 75%;
+        height: 100vh;
+        background-color: var(--color-white-transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        padding: 2.9rem 2.4rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.4s ease, opacity 0.4s ease; 
+    }
+
+    .navigationList {
+        padding: 0 2.4rem;
+        font-size: 5.2rem;
+        text-align: right;
+        flex-direction: column;
+        gap: 4.4rem;
+    }
+
+    .openNav {
+        transform: translateX(0%);
+        opacity: 1; 
+        pointer-events: auto; 
+    }
+    
+    .closeNav {
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+}

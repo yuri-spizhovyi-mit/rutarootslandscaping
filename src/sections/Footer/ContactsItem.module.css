@@ -1,0 +1,15 @@
+.contactsItem{
+    cursor: pointer;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contactsLink:link,
+.contactsLink:visited{
+    text-decoration: none;
+    color: var(--color-black);
+    word-break: break-all;
+}
+

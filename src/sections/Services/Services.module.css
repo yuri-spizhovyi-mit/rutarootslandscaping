@@ -1,0 +1,17 @@
+.services{
+    padding: 20rem 0;
+}
+
+.servicesImageContainer{
+    position: relative;
+}
+
+.servicesImage{
+    aspect-ratio: 768/1024;
+}
+
+@media (max-width: 39em){
+    .services{
+        padding: 9.8rem 0;
+    }
+}

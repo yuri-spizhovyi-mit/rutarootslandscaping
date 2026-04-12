@@ -1,0 +1,65 @@
+.accordionItem {
+  border-top: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionItem:last-child {
+  border-bottom: 1px solid #000;
+}
+
+.accordionItemHead {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 2.4rem;
+  padding: 2rem 0;
+  cursor: pointer;
+}
+
+.accordionItemHeadTitle,
+.accordionItemHeadNum {
+  font-size: 2.4rem;
+  line-height: 1.6;
+}
+
+.accordionItemHeadTitle{
+  font-weight: 600;
+}
+
+.accordionItemHeadNum{
+  font-weight: 300;
+}
+
+.accordionItemBody {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.4s;
+}
+
+.accordionItemBodyContent {
+  padding: 0 2.4rem 2rem calc(2.4rem + 2.4rem);
+}
+
+.accordionItemBodyTitle {
+  font-size: 2rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.accordionItemBodyList {
+  font-size: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap:1.5rem;
+  padding: 0 2rem;
+  margin: 1rem 0 0 2rem;
+  line-height: 1.6;
+}
+
+.accordionItemBodyText {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+

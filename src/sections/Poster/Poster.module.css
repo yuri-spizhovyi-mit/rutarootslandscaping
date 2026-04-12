@@ -1,0 +1,9 @@
+.poster{
+    aspect-ratio: 1400/660;
+}
+
+@media (max-width:48em){
+    .poster{
+        aspect-ratio: 16/12;
+    }
+}

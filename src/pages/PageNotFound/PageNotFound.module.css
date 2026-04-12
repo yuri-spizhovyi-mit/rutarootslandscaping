@@ -1,0 +1,39 @@
+.pageNotFound{
+    width: 100%;
+    height: calc(100dvh - 9.8rem);
+    display: grid;
+    place-items: center;
+    padding:0 3rem;
+}
+
+.pageNotFoundContainer{
+    text-align: center;
+    max-width: 55rem;
+}
+
+.errorImage{
+    aspect-ratio: 768 / 512;
+}
+
+.errorMessage{
+    transform: translateY(-5rem);
+    text-align: center;
+    font-size: 5.2rem;
+    line-height: 1.2;
+    letter-spacing: -0.2;
+    font-weight: 600;
+}
+
+@media (max-width: 39em){
+    .errorMessage{
+        font-size: 4.4rem;
+    }
+}
+        
+@media (max-width: 33em){
+    .errorMessage{
+        transform: translateY(-2.5rem);
+        font-size: 3.6rem;
+    }
+}
+

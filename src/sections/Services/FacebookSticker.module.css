@@ -1,0 +1,14 @@
+.facebookSticker:link,
+.facebookSticker:visited{
+    position:absolute;
+    width: 50%;
+    bottom: -10%;
+    left: -20%;
+}
+
+
+@media (max-width: 90em) {
+    .facebookSticker:link{
+        left: -10%;
+    }
+}

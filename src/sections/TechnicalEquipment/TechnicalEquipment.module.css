@@ -1,0 +1,9 @@
+.techSetup{
+    padding: 20rem 0;
+}
+
+@media (max-width: 39em){
+    .techSetup{
+        padding: 9.8rem 0;
+    }
+}

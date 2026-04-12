@@ -1,0 +1,11 @@
+.gallery{
+    padding: 20rem 0;
+    background-color: rgba(217, 233, 203, 0.16);
+}
+
+
+@media (max-width: 39em) {
+    .gallery{
+        padding: 9.8rem 0;
+    }
+}

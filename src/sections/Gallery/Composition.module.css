@@ -1,0 +1,24 @@
+
+.composition {
+    display: grid;
+    gap:2.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+ }
+
+
+@media (max-width: 48em){
+    .composition {
+        grid-template-rows: repeat(9, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+    } 
+}
+
+
+@media (max-width: 31em){
+    .composition {
+        grid-template-rows: repeat(18, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    } 
+}
+
