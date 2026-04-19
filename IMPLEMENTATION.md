@@ -9,7 +9,8 @@ Read this first at the start of every session. Update it after every session.
 
 | Document | Purpose |
 |---|---|
-| [PLAN.md](PLAN.md) | Project goal, tech stack, pages, global rules, SEO targets |
+| [PLAN.md](PLAN.md) | Project goal, tech stack, pages, global rules, SEO targets, CTA standards |
+| [DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Color palette, typography, spacing, component patterns, responsive breakpoints |
 | [docs/pages/home.md](docs/pages/home.md) | Home page spec |
 | [docs/pages/services.md](docs/pages/services.md) | Services page spec |
 | [docs/pages/about.md](docs/pages/about.md) | About page spec |

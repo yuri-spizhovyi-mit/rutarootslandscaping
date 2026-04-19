@@ -50,10 +50,29 @@ Every page decision must support three outcomes: **trust**, **local authority**,
 - Do NOT use generic template-style landscaping layouts.
 - Clarity over creativity — every design decision must support conversion.
 - Phone number must be visible (tap-to-call on mobile) on every page via sticky nav.
-- Primary CTA across all pages: **"Get a free quote"**
-- Primary CTA on Contact page: **"Get my free quote"** (first-person)
-- Design & installation CTA: **"Book a free site visit"**
-- Cleanup CTA (peak season): **"Book your cleanup"**
+
+---
+
+## CTA & Messaging Standards
+
+**Primary CTAs (Updated):**
+- Main site CTA: **"Get in touch"**
+- Contact form button: **"Get in touch"**
+- Service block CTAs: **"Get in touch for [service]"** or **"Discuss [service]"**
+- Mobile bottom bar: **"Call now"** + **"Get in touch"**
+
+**Removed Language (Do NOT use):**
+- ~~"free quote"~~ — replaced with service-focused CTAs
+- ~~"free site visit"~~ — replaced with "schedule a site visit"
+- ~~"licensed"~~ — only claim "insured" (verified)
+- ~~"no obligation"~~ — replaced with "no pressure"
+- ~~"no subcontractors"~~ — removed entirely
+
+**Tone & Positioning:**
+- Authentic and honest over corporate claims
+- Focus on reliability, responsiveness, quality work
+- Emphasize personal involvement and direct communication
+- Local service area emphasis (West Kelowna & Kelowna)
 
 ---
 

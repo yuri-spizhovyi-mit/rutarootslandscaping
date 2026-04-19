@@ -16,7 +16,7 @@ The Thank You page is not an afterthought — it is a required part of the conve
 
 **Page title:** `Thank you — We'll be in touch | Ruta Roots Landscaping`
 
-**Meta description:** `Your quote request has been received. Ruta Roots Landscaping will call you within 1 business day.`
+**Meta description:** `Your message has been received. We'll review your request and be in touch soon.`
 
 **Robots meta tag:** `noindex, nofollow` — this page should not appear in search results and should not pass link equity. Add `<meta name="robots" content="noindex, nofollow">` to the page `<head>`.
 
@@ -52,7 +52,7 @@ This page's load event is the conversion trigger for Google Ads and GA4.
 **Heading:** `Got it — we'll be in touch soon.`
 
 **Body copy:**
-`Your quote request has been received. Someone from our team will call you within 1 business day to talk through your project.`
+`Your request has been received. Someone from our team will call you within 1 business day to talk through your project.`
 
 `If you need to reach us sooner, call us directly at [(250) 899-4954](tel:+12508994954).`
 
@@ -81,7 +81,7 @@ This page's load event is the conversion trigger for Google Ads and GA4.
    `One of our team will call you at the number you provided. We'll ask a few questions about the project and give you a ballpark on what to expect.`
 
 3. **We schedule a site visit if needed**
-   `For design, installation, and hardscaping projects, we'll arrange a free site visit to properly assess the space before providing a written quote.`
+   `For design, installation, and hardscaping projects, we'll schedule a site visit to properly assess the space before providing a written plan.`
 
 ---
 

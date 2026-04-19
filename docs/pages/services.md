@@ -16,7 +16,7 @@ The Services page is the primary conversion page for visitors who arrive knowing
 
 **Page title:** `Landscaping Services in West Kelowna & Kelowna | Ruta Roots`
 
-**Meta description:** `Lawn care, landscape design, hardscaping, seasonal cleanup & irrigation in West Kelowna and Kelowna. Licensed local crew. Free quotes. Call or submit online.`
+**Meta description:** `Landscaping services in West Kelowna & Kelowna — lawn care, landscape design, hardscaping, seasonal cleanup, and irrigation. Get in touch for a consultation.`
 
 ---
 
@@ -32,7 +32,7 @@ The Services page is the primary conversion page for visitors who arrive knowing
 
 **H1:** `Landscaping services in West Kelowna & Kelowna`
 
-**Sub-heading:** `Local crew. Licensed and insured. Free quotes on all services.`
+**Sub-heading:** `Reliable landscaping services across West Kelowna & Kelowna. Lawn care, design, hardscaping, and seasonal cleanup.`
 
 **Breadcrumb:** `Home → Services`
 
@@ -87,7 +87,7 @@ The Services page is the primary conversion page for visitors who arrive knowing
 5. Aeration & overseeding
 6. One-time or recurring schedule — no lock-in
 
-**CTA:** `Get a quote for lawn care →` → `/contact?service=lawn-care`
+**CTA:** `Get in touch for lawn care →` → `/contact?service=lawn-care`
 
 **Image requirements:**
 - Real Ruta Roots finished lawn — not stock
@@ -110,7 +110,7 @@ The Services page is the primary conversion page for visitors who arrive knowing
 **H2:** `Landscape design & installation in West Kelowna & Kelowna`
 
 **Description paragraph:**
-`We design and build outdoor spaces that suit how you actually live — whether that's a low-maintenance front yard that holds its own through an Okanagan summer, or a backyard built for entertaining. Every project starts with a free site visit and a written proposal before any work begins. Our own crew handles installation start to finish — no subcontractors, no surprises.`
+`We design and build outdoor spaces that suit how you actually live — whether that's a low-maintenance front yard that holds its own through an Okanagan summer, or a backyard built for entertaining. Every project starts with a site visit and a written proposal before any work begins. Our crew handles installation start to finish.`
 
 **Okanagan callout:**
 `Okanagan note: We design with the local climate in mind — drought-tolerant natives, efficient irrigation placement, and plants that thrive in the BC Interior's hot summers and cold winters. No Okanagan yard should look like it was designed for the coast. Soil conditions vary significantly across West Kelowna neighbourhoods; we assess yours before recommending anything.`
@@ -136,11 +136,11 @@ Step 3 — Installation by our own crew
 7. Site prep & soil amendment
 
 **Reassurance bar (3 items, displayed above CTA):**
-- `Free` / Site visit
-- `Written` / Quote before work
-- `Guaranteed` / Satisfaction
+- `Site visit` / Included in our process
+- `Written` / Plan before work
+- `Follow-through` / We stand behind our work
 
-**CTA:** `Book a free site visit →` → `/contact?service=landscape-design`
+**CTA:** `Discuss your project →` → `/contact?service=landscape-design`
 
 **Image requirements:**
 - Best available completed design/installation project — full yard transformation
@@ -176,7 +176,7 @@ Step 3 — Installation by our own crew
 5. Steps & grading
 6. Drainage integration where required
 
-**CTA:** `Get a quote for hardscaping →` → `/contact?service=hardscaping`
+**CTA:** `Get in touch for hardscaping →` → `/contact?service=hardscaping`
 
 **Image requirements:**
 - Completed retaining wall or patio — the most visually dramatic hardscape project available
@@ -196,12 +196,12 @@ Step 3 — Installation by our own crew
 
 **Headline:** `Not sure which service you need?`
 
-**Sub-heading:** `We'll figure it out together. Call us or send a quick message — no commitment required.`
+**Sub-heading:** `We'll figure it out together. Call us or send a message.`
 
 **CTAs:**
 
 - `Call us — (250) 899-4954` → `tel:+12508994954`
-- `Or get a free quote →` → `/contact`
+- `Or get in touch →` → `/contact`
 
 ---
 
@@ -244,7 +244,7 @@ Fall cleanup (6 items):
 
 **CTA (peak season — March/April and October/November):** `Book your cleanup →` → `/contact?service=seasonal-cleanup`
 
-**CTA (off-season):** `Get a cleanup quote →` → `/contact?service=seasonal-cleanup`
+**CTA (off-season):** `Get in touch for cleanup →` → `/contact?service=seasonal-cleanup`
 
 **Upsell line (below CTA):** `Already a lawn care client? Cleanup is available as an add-on — just mention it when you book.`
 
@@ -281,7 +281,7 @@ Fall cleanup (6 items):
 5. Zone adjustment & efficiency tuning
 6. Smart timer setup & programming
 
-**CTA:** `Get a quote for irrigation →` → `/contact?service=irrigation`
+**CTA:** `Get in touch for irrigation →` → `/contact?service=irrigation`
 
 **Image requirements:**
 - Irrigation installation in progress or completed system — real project photo
@@ -303,14 +303,14 @@ Fall cleanup (6 items):
 **Q: Do you serve West Kelowna and Kelowna?**
 A: Yes — we serve West Kelowna, Kelowna, Peachland, and Lake Country. If you're unsure whether we cover your area, give us a call or send a quick message.
 
-**Q: Do you offer free quotes?**
-A: Yes. All quotes are free and come with no obligation. For lawn care and cleanup, we can usually quote over the phone or by email. For landscape design and hardscaping projects, we prefer to do a free site visit so we can properly assess the space before providing a number.
+**Q: How do you approach new projects?**
+A: We start with a conversation to understand your needs. For lawn care and cleanup, we can usually discuss over the phone or by email. For landscape design and hardscaping projects, we do a site visit so we can properly assess the space and provide a clear plan before any work begins.
 
 **Q: How long does a landscaping project take?**
 A: It depends on the scope. A seasonal cleanup typically takes a few hours to a full day. A lawn care visit is usually 1–2 hours. Landscape design and installation projects range from 2 days for smaller jobs to 2–3 weeks for full yard transformations. We'll give you a clear timeline as part of your written proposal.
 
-**Q: Are you licensed and insured in BC?**
-A: Yes. Ruta Roots Landscaping is fully licensed in British Columbia, carries general liability insurance, and is covered by WorkSafeBC. Licence number: [insert number]. You can verify this before hiring us.
+**Q: What protections do I have as a client?**
+A: Ruta Roots Landscaping carries liability insurance that protects your property. All work is completed professionally and we stand behind our results.
 
 **Q: Do you do one-time jobs or only ongoing contracts?**
 A: Both. We offer one-time visits for lawn care, cleanup, and smaller projects with no lock-in contract. We also offer recurring lawn maintenance schedules for clients who want consistent upkeep through the season. No pressure either way.
@@ -331,9 +331,9 @@ A: Yes — we bring everything we need. You don't need to supply anything. For d
 
 **Purpose:** Conversion point for visitors who read the full page. Never end a page without a conversion opportunity — visitors who reach the FAQ have shown high intent.
 
-**Heading:** `Ready to get started?`
+**Heading:** `Tell us about your project`
 
-**Sub-heading:** `Tell us about your project and we'll get back to you within 1 business day.`
+**Sub-heading:** `Share a few details and we'll get back to you within 1 business day.`
 
 **Form fields:**
 1. Name (required)
@@ -341,9 +341,9 @@ A: Yes — we bring everything we need. You don't need to supply anything. For d
 3. Service needed (required — dropdown): Lawn care & maintenance / Landscape design & installation / Hardscaping / Seasonal cleanup / Irrigation / Not sure yet
 4. Best time to call (optional)
 
-**Submit button copy:** `Get my free quote`
+**Submit button copy:** `Get in touch`
 
-**Below button:** `No spam. No obligation. We respond within 1 business day.`
+**Below button:** `No pressure. We respond within 1 business day.`
 
 **On submit:** Redirect to `/thank-you`
 

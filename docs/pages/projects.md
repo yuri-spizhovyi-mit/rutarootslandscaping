@@ -177,10 +177,10 @@ A thin gallery (3–5 cards) signals a low-volume or new business even if that i
 
 **Heading:** `Want results like these for your property?`
 
-**Sub-heading:** `Get a free quote — we'll assess your space and tell you exactly what's possible.`
+**Sub-heading:** `Get in touch to discuss your project. We'll assess your space and tell you what's possible.`
 
 **CTAs:**
-- Primary button: `Get a free quote` → `/contact`
+- Primary button: `Get in touch` → `/contact`
 - Secondary link: `Or call us — (250) 899-4954` → `tel:+12508994954`
 
 ---

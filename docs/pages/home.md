@@ -16,7 +16,7 @@ The Home page is the primary landing point for paid traffic (Google Ads) and org
 
 **Page title:** `Landscaping in West Kelowna & Kelowna | Ruta Roots Landscaping`
 
-**Meta description:** `West Kelowna's trusted local landscaping crew. Lawn care, landscape design, hardscaping & seasonal cleanup. Licensed, insured, and locally rooted. Get a free quote today.`
+**Meta description:** `Get in touch to discuss your landscaping project in West Kelowna or Kelowna. Reliable service for lawn care, landscape work, hardscaping, and seasonal cleanup.`
 
 ---
 
@@ -34,7 +34,7 @@ The Home page is the primary landing point for paid traffic (Google Ads) and org
 - Logo (left)
 - Nav links: Home · Services · About · Projects · Contact
 - Phone number (right, large, tap-to-call): displayed as `(250) 899-4954`
-- "Get a quote" button (accent colour, links to `/contact`)
+- "Get in touch" button (accent colour, links to `/contact`)
 
 **Design notes:**
 - Phone number must be the most visible element in the nav on mobile
@@ -49,12 +49,12 @@ The Home page is the primary landing point for paid traffic (Google Ads) and org
 
 **Purpose:** The 5-second pitch. Communicates what Ruta Roots does, where they operate, and gives the visitor two paths to act immediately.
 
-**Headline:** `West Kelowna's trusted landscaping team`
+**Headline:** `Reliable landscaping in West Kelowna & Kelowna`
 
 **Sub-headline:** `Lawn care, landscape design & seasonal cleanup — serving West Kelowna, Kelowna & surrounding areas`
 
 **CTAs:**
-- Primary button: `Get a free quote` → links to `/contact`
+- Primary button: `Get in touch` → links to `/contact`
 - Secondary link: `Call us now — (250) 899-4954` → `tel:+12508994954`
 
 **Image requirements:**
@@ -75,13 +75,12 @@ The Home page is the primary landing point for paid traffic (Google Ads) and org
 
 **Component:** `TrustStrip`
 
-**Purpose:** The first thing a skeptical visitor sees after the hero. Provides immediate social proof and credibility signals before the visitor reads a single word of body copy. No heading — the strip speaks for itself.
+**Purpose:** The first thing a skeptical visitor sees after the hero. Provides immediate credibility signals before the visitor reads body copy. No heading — the strip speaks for itself.
 
 **Content (displayed as horizontal items with dividers):**
-- `⭐ 4.9 · [X] reviews on Google`
-- `[X] years serving West Kelowna`
-- `Licensed & insured in BC`
-- `WCB covered`
+- `15+ years landscaping experience`
+- `3 years serving West Kelowna`
+- `Built on repeat clients and referrals`
 
 **Design notes:**
 - Thin horizontal bar, full width
@@ -110,7 +109,7 @@ Card 1 — Lawn care & maintenance
 Card 2 — Landscape design & installation
 - Icon or small photo
 - Name: `Landscape design & installation`
-- Description: `Full-yard transformations designed for how you live and built for the BC Interior climate. Site visit, written proposal, installation by our own crew.`
+- Description: `Landscape improvements designed for how you use your outdoor space and suited to the BC Interior climate. Practical planning, careful work, and attention to detail from start to finish.`
 - Link: `Learn more →` → `/services#landscape-design`
 
 Card 3 — Hardscaping & seasonal cleanup
@@ -159,17 +158,17 @@ Card 3 — Hardscaping & seasonal cleanup
 
 **Differentiators (4 blocks — icon + bold claim + 1-sentence explanation):**
 
-1. **Local crew — no subcontractors, ever**
-   `The same people who quote your job are the ones who show up to do it. You're not handing your property to whoever was available that week.`
+1. **Clear communication throughout the project**
+   `You have direct communication from start to finish and know what to expect every step of the way.`
 
-2. **Licensed, insured & WCB-covered in BC**
-   `Fully licensed in British Columbia and covered by WorkSafeBC. Licence number: [insert number]. Not just a claim — verifiable.`
+2. **Properly insured and responsible**
+   `Ruta Roots carries liability insurance and operates with proper business practices that protect your property.`
 
-3. **Response within 1 business day**
-   `We respond to every quote request within one business day. If you call during business hours, we pick up. If you leave a message, we call back the same day.`
+3. **Focus on doing the job right**
+   `Work is done properly with proper preparation, careful execution, and attention to detail that makes projects last.`
 
-4. **Satisfaction guaranteed — we come back until it's right**
-   `If anything isn't right after we finish, call us and we'll fix it — no charge, no argument. We stand behind every job.`
+4. **Reliable from start to finish**
+   `You can count on consistent service, follow-through, and commitment to completing projects you're satisfied with.`
 
 **Design notes:**
 - 2×2 grid on desktop, stacked on mobile
@@ -182,25 +181,19 @@ Card 3 — Hardscaping & seasonal cleanup
 
 **Component:** `ReviewsSection`
 
-**Purpose:** Social proof from a third-party platform. Three real reviews displayed in full — not truncated. Visitors doing due diligence on a local trades company will look for reviews; surfacing them here removes the need to leave the site.
+**Purpose:** Social proof from a third-party platform. One real verified review displayed in full. Visitors doing due diligence on a local trades company will look for reviews; surfacing them here removes the need to leave the site.
 
 **Section heading:** `What clients say`
 
-**Review card structure (3 cards):**
-- Star rating (5 filled stars, or exact rating)
-- Reviewer first name + last initial
-- Review date
-- Full review text (do not truncate — use the most specific reviews available)
+**Review card structure (1 card):**
+- Star rating: ★★★★★
+- Reviewer name: Darlene S.
+- Review date: 10 months ago
+- Full review text: "I'm very happy to find Alex at Ruta Roots Landscaping to redefine my garden issues having just moved to Kelowna in April. I recommend him for a thorough job! Well done Alex, I am glad to find you!"
 - `via Google` label
 
-**Selection criteria for which reviews to display:**
-- Must mention a specific service (not just "great company")
-- Must mention an outcome or result
-- Must mention the crew or a person by name if possible
-- Avoid reviews that are generic praise without specifics
-
-**Below the cards:**
-- Link: `See all [X] reviews on Google →` → opens Google Business Profile in new tab
+**Below the card:**
+- Link: `Read review on Google →` → opens Google Business Profile in new tab
 
 ---
 
@@ -210,9 +203,9 @@ Card 3 — Hardscaping & seasonal cleanup
 
 **Purpose:** Catches visitors who scrolled the full page but did not convert at the hero. A repeated button here is insufficient — this section embeds a short form so the visitor can act without navigating to the Contact page.
 
-**Section heading:** `Ready to get started?`
+**Section heading:** `Tell us about your project`
 
-**Sub-heading:** `Tell us about your project and we'll get back to you within 1 business day.`
+**Sub-heading:** `Share a few details and we'll get back to you within 1 business day.`
 
 **Form fields:**
 1. Name (required)
@@ -220,9 +213,9 @@ Card 3 — Hardscaping & seasonal cleanup
 3. Service needed (required — dropdown): Lawn care & maintenance / Landscape design & installation / Hardscaping / Seasonal cleanup / Irrigation / Not sure yet
 4. Best time to call (optional — text input or dropdown: Morning / Afternoon / Evening / Anytime)
 
-**Submit button copy:** `Get my free quote`
+**Submit button copy:** `Get in touch`
 
-**Below button:** `No spam. No obligation. We respond within 1 business day.`
+**Below button:** `No pressure. We respond within 1 business day.`
 
 **Form behaviour:**
 - On submit → redirect to `/thank-you`
@@ -247,7 +240,6 @@ Card 3 — Hardscaping & seasonal cleanup
 - Service area: `Serving West Kelowna · Kelowna · Peachland · Lake Country`
 - Social links: Facebook icon, Instagram icon
 - Google Maps link: `View on Google Maps →`
-- Licence number: `BC Licence #[number]`
 - Copyright: `© [year] Ruta Roots Landscaping. All rights reserved.`
 
 ---
@@ -286,4 +278,4 @@ Card 3 — Hardscaping & seasonal cleanup
 - Trust strip scrolls horizontally on small screens rather than wrapping
 - Featured project uses swipe carousel (before/after) on mobile
 - Bottom form fields stack vertically, min 44px tap target height per input
-- Sticky bottom bar on mobile: `Call now` + `Get a quote` buttons always visible
+- Sticky bottom bar on mobile: `Call now` + `Get in touch` buttons always visible

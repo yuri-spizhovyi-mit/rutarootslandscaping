@@ -14,9 +14,9 @@ The Contact page has one job: remove every reason not to submit. It is the highe
 
 ## SEO
 
-**Page title:** `Get a Free Landscaping Quote — West Kelowna & Kelowna | Ruta Roots`
+**Page title:** `Landscaping Services in West Kelowna & Kelowna | Ruta Roots`
 
-**Meta description:** `Request a free landscaping quote in West Kelowna or Kelowna. Ruta Roots responds within 1 business day. Call or submit online — no obligation.`
+**Meta description:** `Get in touch to discuss your landscaping project in West Kelowna or Kelowna. Fast response, reliable service, no pressure.`
 
 ---
 
@@ -44,9 +44,9 @@ The Contact page accepts a `?service=` query parameter from per-service CTAs on 
 
 **Purpose:** Reframe the page away from "Contact us" toward the visitor's outcome.
 
-**H1:** `Get your free landscaping quote`
+**H1:** `Tell us about your project`
 
-**Sub-heading:** `Tell us about your project and we'll get back to you within 1 business day.`
+**Sub-heading:** `Reach out to discuss your landscaping needs. We respond within 1 business day.`
 
 **Breadcrumb:** `Home → Contact`
 
@@ -69,7 +69,7 @@ The Contact page accepts a `?service=` query parameter from per-service CTAs on 
 
 **Component:** `QuoteForm`
 
-**Form heading:** `Get a free quote`
+**Form heading:** `Tell us about your project`
 
 **Fields (in order):**
 
@@ -117,13 +117,13 @@ The Contact page accepts a `?service=` query parameter from per-service CTAs on 
 - Preferred start date (premature, creates friction)
 
 **Submit button:**
-- Copy: `Get my free quote`
+- Copy: `Get in touch`
 - Full width on mobile
 - Accent colour background — must be the most visually prominent element in the form
 - Do NOT use: "Submit", "Send", "Contact us", "Request quote"
 
 **Below submit button:**
-`No spam. No obligation. We respond within 1 business day.`
+`No pressure. We respond within 1 business day.`
 
 **Spam prevention:**
 - Honeypot hidden field (e.g. `<input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">`)
@@ -151,28 +151,12 @@ Hours: `Mon–Fri 8am–6pm · West Kelowna, BC`
 
 **Divider:** `or fill in the form below` (on mobile only — separates phone block from form)
 
-**Trust stat row (3 items):**
-
-| Value | Label |
-|---|---|
-| 4.9 stars | Google rating |
-| < 1 day | Response time |
-| Licensed | BC & WCB |
-
-**Review excerpts (2 short quotes):**
-- Format: `"[One sentence from a real Google review]"` — First name + last initial, via Google
-- Select reviews that mention responsiveness or reliability — directly relevant to the submission decision
-- Do not fabricate or paraphrase reviews — use exact text with permission
-
 **Service area list:**
 ```
 Serving:
 West Kelowna · Kelowna
 Peachland · Lake Country
 ```
-
-**Licence number (small text):**
-`BC Licence #[number] · WCB Clearance #[number]`
 
 ---
 
