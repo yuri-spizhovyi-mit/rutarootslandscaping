@@ -24,7 +24,7 @@ Read this first at the start of every session. Update it after every session.
 
 | Step | Task | Status |
 |---|---|---|
-| 1 | Routing setup — `src/App.jsx` | `pending` |
+| 1 | Routing setup — `src/App.jsx` | `done` |
 | 2 | Home page rebuild | `pending` |
 | 3 | Contact page | `pending` |
 | 4 | Thank You page | `pending` |
@@ -198,6 +198,23 @@ _None yet._
 ---
 
 ## Session Log
+
+### 2026-04-19 — Routing setup & lazy-loaded pages
+
+- Refactored `src/App.jsx` with React Router v6 full implementation
+- Set up 6 main routes (/, /services, /about, /projects, /contact, /thank-you) with lazy loading + Suspense
+- Created placeholder page components: Services, About, Projects, Contact, ThankYou
+- PageLoader fallback on route transitions, PageTitleListener wrapper for SEO
+- All routes now ready for page implementation
+- **Next:** Step 2 — Home page rebuild
+
+### 2026-04-19 — GSAP animations & memory setup
+
+- Saved user preferences to memory: flex container patterns, clean code standards (Uncle Bob), GSAP animations requirement
+- Created `src/hooks/useGsapAnimation.jsx` — Reusable hook for GSAP animation triggers
+- Created `src/utils/animations/titleAnimations.js` — Title entrance animations (fade-in + slide-up, staggered)
+- Updated `src/sections/Hero/Hero.jsx` — Applied staggered title animation to hero heading spans
+- **Next:** Routing setup in `src/App.jsx`
 
 ### 2026-04-12 — Project setup & docs normalization
 - Created `.claude/skills/swe/SKILL.md` — project-scoped Senior Dev persona
