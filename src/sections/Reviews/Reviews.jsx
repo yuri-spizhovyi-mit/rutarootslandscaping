@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./Reviews.module.css";
+import { useCursorGlow } from "../../hooks/useCursorGlow";
 
 const ChevronLeftIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -15,6 +16,8 @@ const ChevronRightIcon = () => (
 
 function ReviewsSection() {
   const [currentReview, setCurrentReview] = useState(0);
+  const containerRef = useRef(null);
+  useCursorGlow(containerRef, `.${styles.reviewCard}`);
 
   const reviews = [
     {
@@ -72,7 +75,7 @@ function ReviewsSection() {
         <div className="sub-heading">Client Testimonials</div>
         <h2 className="heading-secondary">What clients say</h2>
 
-        <div className={styles.carouselWrapper}>
+        <div className={styles.carouselWrapper} ref={containerRef}>
           <div className={styles.carouselTrack}
             style={{
               transform: `translateX(calc(-${currentReview * 33.333}% - ${currentReview * 2}rem))`

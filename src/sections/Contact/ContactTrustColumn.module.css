@@ -1,0 +1,109 @@
+.trustColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+/* Phone block */
+.phoneBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.phoneLabel {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-dark-grey);
+}
+
+.phoneNumber {
+  font-size: clamp(2.4rem, 3vw, 3.2rem);
+  font-weight: 700;
+  color: var(--color-green);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.phoneNumber:hover {
+  color: var(--color-terracotta);
+}
+
+.phoneNumber::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-green),
+    var(--color-green) 50%,
+    transparent
+  );
+  transition: background 0.3s ease;
+}
+
+.phoneNumber:hover::after {
+  background: linear-gradient(
+    90deg,
+    var(--color-terracotta),
+    var(--color-terracotta) 50%,
+    transparent
+  );
+}
+
+.hours {
+  font-size: 1.3rem;
+  color: var(--color-medium-grey);
+  line-height: 1.6;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--color-green),
+    var(--color-green) 30%,
+    transparent
+  );
+}
+
+/* Service area */
+.serviceArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.serviceAreaLabel {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-dark-grey);
+}
+
+@media (max-width: 768px) {
+  .trustColumn {
+    gap: 2.4rem;
+  }
+
+  .phoneLabel {
+    font-size: 1.4rem;
+  }
+
+  .phoneNumber {
+    font-size: clamp(2rem, 2.5vw, 2.8rem);
+  }
+
+  .hours {
+    font-size: 1.2rem;
+  }
+
+  .serviceAreaLabel {
+    font-size: 1.4rem;
+  }
+}

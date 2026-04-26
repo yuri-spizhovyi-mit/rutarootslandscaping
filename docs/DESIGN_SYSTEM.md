@@ -180,6 +180,17 @@ Default link styling defined in `.link`:
 - Z-index: `999`
 - Padding: `0 3.6rem`
 
+**Navigation Links:**
+- **Active page:** Green color (`--color-green: #2b8a3e`) with bold (600)
+- **Inactive hover:** Terracotta color (`--color-terracotta: #C85A17`)
+- **Transition:** Smooth 0.3s ease on color changes
+- **Usage:** Automatically applied via `useLocation()` hook in Navigation.jsx
+
+```jsx
+const location = useLocation();
+const isActive = location.pathname === item.path;
+```
+
 **Navigation (Mobile):**
 - Transforms from right: `transform: translateX(100%)`
 - Overlay with blur: `backdrop-filter: blur(10px)`

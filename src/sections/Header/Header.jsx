@@ -1,13 +1,16 @@
 import styles from "./Header.module.css";
 
 import { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
 import Navigation from "./Navigation";
 import Hamburger from "./Hamburger";
 
 function Header() {
   const [isNavOpen, setNavOpen] = useState(false);
+  const location = useLocation();
+  const isContactPage = location.pathname === "/contact";
+
   const closeNav = () => setNavOpen(false);
   const openNav = () => setNavOpen(true);
 
@@ -21,18 +24,20 @@ function Header() {
         />
       </RouterLink>
 
-      <Navigation isNavOpen={isNavOpen} closeNav={closeNav} />
+      {!isContactPage && <Navigation isNavOpen={isNavOpen} closeNav={closeNav} />}
 
       <div className={styles.headerRight}>
         <a href="tel:+12508994954" className={styles.phone}>
           (250) 899-4954
         </a>
-        <RouterLink to="/contact" className={styles.ctaButton}>
-          Get in touch
-        </RouterLink>
+        {!isContactPage && (
+          <RouterLink to="/contact" className={styles.ctaButton}>
+            Get in touch
+          </RouterLink>
+        )}
       </div>
 
-      <Hamburger hamburgerIcon="icon-hamburger-open" onClick={openNav} />
+      {!isContactPage && <Hamburger hamburgerIcon="icon-hamburger-open" onClick={openNav} />}
     </header>
   );
 }

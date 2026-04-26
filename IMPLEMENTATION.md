@@ -26,7 +26,7 @@ Read this first at the start of every session. Update it after every session.
 |---|---|---|
 | 1 | Routing setup — `src/App.jsx` | `done` |
 | 2 | Home page rebuild | `done` |
-| 3 | Contact page | `pending` |
+| 3 | Contact page | `done` |
 | 4 | Thank You page | `pending` |
 | 5 | Services page | `pending` |
 | 6 | About page | `pending` |
@@ -41,7 +41,7 @@ Read this first at the start of every session. Update it after every session.
 | Component | File | Shared By | Status |
 |---|---|---|---|
 | PageHero | `src/ui/PageHero/PageHero.jsx` | Services, About, Projects, Contact | `pending` |
-| QuoteForm | `src/ui/QuoteForm/QuoteForm.jsx` | Home (BottomCTAForm), Contact | `pending` |
+| QuoteForm | `src/ui/QuoteForm/QuoteForm.jsx` | Home (BottomCTAForm), Contact | `done` |
 | BottomCTA | `src/ui/BottomCTA/BottomCTA.jsx` | About, Projects | `pending` |
 | BottomCTAForm | `src/ui/BottomCTAForm/BottomCTAForm.jsx` | Home, Services | `done` |
 | ServiceBlock | `src/ui/ServiceBlock/ServiceBlock.jsx` | Services (data-driven) | `pending` |
@@ -69,8 +69,9 @@ Read this first at the start of every session. Update it after every session.
 
 | Component | File | Status |
 |---|---|---|
-| ContactLayout | `src/sections/Contact/ContactLayout.jsx` | `pending` |
-| ContactTrustColumn | `src/sections/Contact/ContactTrustColumn.jsx` | `pending` |
+| ContactPageHero | `src/sections/Contact/ContactPageHero.jsx` | `done` |
+| ContactLayout | `src/sections/Contact/ContactLayout.jsx` | `done` |
+| ContactTrustColumn | `src/sections/Contact/ContactTrustColumn.jsx` | `done` |
 
 ### Thank You (`src/sections/ThankYou/`)
 
@@ -396,6 +397,43 @@ _None yet._
 ---
 
 ## Session Log
+
+### 2026-04-26 — Contact page implementation (Step 3)
+
+- **Stripped header variant:** `/contact` route now shows logo + phone only, no nav links or CTA button (conversion optimization pattern)
+- **QuoteForm component:** Built with `react-hook-form` v7, `onBlur` validation mode, URL param pre-selection via `useSearchParams()`
+  - 5 fields: name, phone, email, service (dropdown), optional bestTime
+  - Phone regex validation: `^\+?1?\s*\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{4}$`
+  - Email regex validation: `/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i`
+  - Honeypot field "website" (hidden) prevents spam submissions
+  - Inline error messages in terracotta color on field blur
+  - Submit button shows "Sending..." while disabled during submission
+  - On success: redirects to `/thank-you`
+- **ContactTrustColumn:** Phone block (large, tap-to-call), service area list, gradient divider separator
+  - Phone number is green with terracotta hover effect
+  - Responsive sizing with clamp() for mobile adaptation
+- **ContactLayout:** 60/40 CSS Grid (form left, trust right), reverses to stacked mobile (trust first)
+  - Uses `useScrollReveal` on section heading for entrance animation
+  - Gap: 6.4rem desktop, responsive reduction on tablet/mobile
+- **ContactPageHero:** H1 with GSAP entry animation, sub-heading, breadcrumb navigation
+  - Uses `useGsapAnimation` + `createTitleInAnimation` pattern from Home page
+  - Light background (#fafafa) with no parallax
+- **Styling reused from Home page:** Green (#2b8a3e) primary buttons, terracotta (#C85A17) for errors/accents
+- **URL param feature:** `/contact?service=lawn-care` pre-selects the service dropdown to "Lawn care & maintenance"
+- **Mobile optimized:** 2-column grid → 1 column, trust column stacks ABOVE form, all inputs ≥44px height
+- **Status:** Contact page complete — dev server running, ready for Services page (Step 5)
+- **Build order tracking:** Updated in IMPLEMENTATION.md — Contact marked as done, next is Services page
+
+### 2026-04-26 — Navigation styling with brand colors (active green, hover terracotta)
+
+- Updated Navigation component to detect active page using `useLocation()` hook
+- Applied green color (`--color-green: #2b8a3e`) to active navigation link with bold font weight
+- Applied terracotta hover effect (`--color-terracotta: #C85A17`) to inactive navigation links
+- Added smooth 0.3s color transition on all navigation links
+- **Pattern:** Active page stands out in green, hovering over other pages reveals terracotta accent
+- All colors use CSS variables for consistency with brand palette
+- Navigation now uses brand color system consistently: green for active, terracotta for interactive hover states
+- **Status:** Navigation styling complete — ready for next feature work
 
 ### 2026-04-26 — Reviews carousel refinements & looping carousel fix
 

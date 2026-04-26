@@ -21,6 +21,16 @@
     position: relative;
     color: var(--color-black);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navigationLinkActive {
+    color: var(--color-green);
+    font-weight: 600;
+}
+
+.navigationLink:hover:not(.navigationLinkActive) {
+    color: var(--color-terracotta);
 }
 
 .navCloseButton {

@@ -1,0 +1,95 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-dark-grey);
+  display: block;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  font-family: inherit;
+  color: var(--color-dark-grey);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 4.4rem;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(43, 138, 62, 0.08);
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.error {
+  font-size: 1.3rem;
+  color: var(--color-terracotta);
+  display: block;
+  margin-top: -0.2rem;
+}
+
+.submitButton {
+  padding: 1.4rem 3.2rem;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  font-size: 1.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+  width: 100%;
+  min-height: 4.8rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #1f6a2f;
+  transform: translateY(-2px);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.disclaimer {
+  font-size: 1.4rem;
+  color: var(--color-medium-grey);
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .form {
+    gap: 1.2rem;
+  }
+
+  .submitButton {
+    min-height: 4.4rem;
+  }
+}
