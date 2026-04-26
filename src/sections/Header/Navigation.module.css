@@ -1,9 +1,18 @@
 
+.navigation {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navigationList {
     font-size: 2.4rem;
     display: flex;
-    gap: 2.4rem;
+    gap: 3.2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navigationLink:link,
@@ -12,6 +21,16 @@
     position: relative;
     color: var(--color-black);
     text-decoration: none;
+}
+
+.navCloseButton {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    z-index: auto !important;
+    align-self: flex-start;
+    margin-bottom: 2.4rem;
 }
 
 .hamburger {
@@ -28,7 +47,7 @@
         top: 0;
         right: 0;
         z-index: 9999;
-        width: 75%;
+        width: 70%;
         height: 100vh;
         background-color: var(--color-white-transparent);
         backdrop-filter: blur(10px);
@@ -37,7 +56,9 @@
         padding: 2.9rem 2.4rem;
         opacity: 0;
         pointer-events: none;
-        transition: transform 0.4s ease, opacity 0.4s ease; 
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        display: flex;
+        flex-direction: column;
     }
 
     .navigationList {
@@ -46,14 +67,15 @@
         text-align: right;
         flex-direction: column;
         gap: 4.4rem;
+        flex: 1;
     }
 
     .openNav {
         transform: translateX(0%);
-        opacity: 1; 
-        pointer-events: auto; 
+        opacity: 1;
+        pointer-events: auto;
     }
-    
+
     .closeNav {
         transform: translateX(100%);
         opacity: 0;

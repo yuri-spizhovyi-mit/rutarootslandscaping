@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 import Navigation from "./Navigation";
 import Hamburger from "./Hamburger";
@@ -13,15 +13,24 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <Link to="hero" duration={250} spy={true} href="#hero-section">
+      <RouterLink to="/" className={styles.logoLink}>
         <img
           src="/images/logotype/logo.png"
           className={styles.logotype}
           alt="Ruta Roots logo"
         />
-      </Link>
+      </RouterLink>
 
       <Navigation isNavOpen={isNavOpen} closeNav={closeNav} />
+
+      <div className={styles.headerRight}>
+        <a href="tel:+12508994954" className={styles.phone}>
+          (250) 899-4954
+        </a>
+        <RouterLink to="/contact" className={styles.ctaButton}>
+          Get in touch
+        </RouterLink>
+      </div>
 
       <Hamburger hamburgerIcon="icon-hamburger-open" onClick={openNav} />
     </header>

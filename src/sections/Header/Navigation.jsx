@@ -1,7 +1,7 @@
 import styles from "./Navigation.module.css";
 
 import { NAVIGATION_ITEMS } from "../../data/navigationItems";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 import Hamburger from "./Hamburger";
 
@@ -11,7 +11,7 @@ function Navigation({ isNavOpen, closeNav }) {
   return (
     <nav className={`${styles.navigation} ${navigationState}`}>
       <Hamburger
-        className="mb-md"
+        className={styles.navCloseButton}
         onClick={closeNav}
         hamburgerIcon="icon-hamburger-close"
       />
@@ -20,12 +20,9 @@ function Navigation({ isNavOpen, closeNav }) {
           return (
             <li key={item.id}>
               <Link
-                duration={250}
-                spy={true}
-                to={item.scrollTo}
+                to={item.path}
                 className={styles.navigationLink}
                 onClick={closeNav}
-                href={`#${item.scrollTo}-section`}
               >
                 {item.name}
               </Link>

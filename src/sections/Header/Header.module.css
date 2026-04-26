@@ -1,4 +1,4 @@
-.header{    
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,22 +7,75 @@
     padding: 0 3.6rem;
     z-index: 999;
     background: var(--color-white);
-
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 2rem;
     box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
 }
 
-.logotype{
+.logoLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logotype {
     width: auto;
     height: 6.2rem;
     cursor: pointer;
     aspect-ratio: 1218/338;
 }
 
-@media (max-width: 39em){
-    .header{
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    margin-left: auto;
+}
+
+.phone {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-dark-grey);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.ctaButton {
+    padding: 0.8rem 1.6rem;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: #1f6a2f;
+}
+
+@media (max-width: 64em) {
+    .headerRight {
+        gap: 1.6rem;
+    }
+}
+
+@media (max-width: 48em) {
+    .header {
+        height: 8rem;
+        position: relative;
+    }
+    .headerRight {
+        display: none;
+    }
+}
+
+@media (max-width: 39em) {
+    .header {
         height: 8rem;
     }
 }

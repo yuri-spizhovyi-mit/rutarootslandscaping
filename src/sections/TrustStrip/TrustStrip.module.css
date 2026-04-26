@@ -1,0 +1,71 @@
+.trustStrip {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 2.4rem 0;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.container {
+    max-width: 130rem;
+    margin: 0 auto;
+    padding: 0 3.6rem;
+}
+
+.credentialsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.credentialItem {
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    color: var(--color-dark-grey);
+    text-align: center;
+    position: relative;
+}
+
+.credentialItem:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 2rem;
+    background-color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .credentialItem {
+        padding: 1rem 1.2rem;
+        font-size: 1.4rem;
+    }
+    .credentialItem:not(:last-child)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .trustStrip {
+        padding: 1.6rem 0;
+    }
+    .container {
+        padding: 0 1.8rem;
+    }
+    .credentialItem {
+        padding: 0.8rem 0.8rem;
+        font-size: 1.3rem;
+        width: 100%;
+    }
+    .credentialsList {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}

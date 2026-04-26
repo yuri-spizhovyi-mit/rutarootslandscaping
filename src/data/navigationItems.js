@@ -2,28 +2,28 @@ import { nanoid as createId } from "nanoid";
 
 export const NAVIGATION_ITEMS = [
     {
-        name:"Home",
-        scrollTo:"hero",
-        id:createId(),
+        name: "Home",
+        path: "/",
+        id: createId(),
     },
     {
-        name:"About",
-        scrollTo:"about",
-        id:createId(),
+        name: "About",
+        path: "/about",
+        id: createId(),
     },
     {
-        name:"Gallery",
-        scrollTo:"gallery",
-        id:createId(),
+        name: "Gallery",
+        path: "/projects",
+        id: createId(),
     },
     {
-        name:"Services",
-        scrollTo:"services",
-        id:createId(),
+        name: "Services",
+        path: "/services",
+        id: createId(),
     },
     {
-        name:"Contacts",
-        scrollTo:"contacts",
-        id:createId(),
+        name: "Contacts",
+        path: "/contact",
+        id: createId(),
     },
 ];

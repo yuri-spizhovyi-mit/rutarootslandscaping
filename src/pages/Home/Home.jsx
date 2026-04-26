@@ -1,21 +1,21 @@
 import Hero from "../../sections/Hero/Hero";
-import About from "../../sections/About/About";
-import GalleryIntro from "../../sections/Gallery/Gallery";
-import TechnicalEquipment from "../../sections/TechnicalEquipment/TechnicalEquipment";
-import Services from "../../sections/Services/Services";
-import Poster from "../../sections/Poster/Poster";
-import Testimonials from "../../sections/Testimonials/Testimonials";
+import TrustStrip from "../../sections/TrustStrip/TrustStrip";
+import ServicesPreview from "../../sections/ServicesPreview/ServicesPreview";
+import FeaturedProject from "../../sections/FeaturedProject/FeaturedProject";
+import WhyRutaRoots from "../../sections/WhyRutaRoots/WhyRutaRoots";
+import ReviewsSection from "../../sections/Reviews/Reviews";
+import BottomCTAForm from "../../ui/BottomCTAForm/BottomCTAForm";
 
 function Home() {
   return (
     <>
       <Hero />
-      <About />
-      <GalleryIntro />
-      <TechnicalEquipment />
-      <Services />
-      <Poster />
-      <Testimonials />
+      <TrustStrip />
+      <ServicesPreview />
+      <FeaturedProject />
+      <WhyRutaRoots />
+      <ReviewsSection />
+      <BottomCTAForm />
     </>
   );
 }

@@ -1,11 +1,18 @@
-.hamburger{
+.hamburger {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
-@media (max-width:48em) {
-    .hamburger{
+@media (max-width: 48em) {
+    .hamburger {
         display: flex;
-        background: none;
-        border: none;
-    }        
+        position: absolute;
+        top: 50%;
+        right: 3.6rem;
+        transform: translateY(-50%);
+        z-index: 1000;
+    }
 }

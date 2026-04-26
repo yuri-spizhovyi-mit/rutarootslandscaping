@@ -25,7 +25,7 @@ Read this first at the start of every session. Update it after every session.
 | Step | Task | Status |
 |---|---|---|
 | 1 | Routing setup — `src/App.jsx` | `done` |
-| 2 | Home page rebuild | `pending` |
+| 2 | Home page rebuild | `done` |
 | 3 | Contact page | `pending` |
 | 4 | Thank You page | `pending` |
 | 5 | Services page | `pending` |
@@ -43,7 +43,7 @@ Read this first at the start of every session. Update it after every session.
 | PageHero | `src/ui/PageHero/PageHero.jsx` | Services, About, Projects, Contact | `pending` |
 | QuoteForm | `src/ui/QuoteForm/QuoteForm.jsx` | Home (BottomCTAForm), Contact | `pending` |
 | BottomCTA | `src/ui/BottomCTA/BottomCTA.jsx` | About, Projects | `pending` |
-| BottomCTAForm | `src/ui/BottomCTAForm/BottomCTAForm.jsx` | Home, Services | `pending` |
+| BottomCTAForm | `src/ui/BottomCTAForm/BottomCTAForm.jsx` | Home, Services | `done` |
 | ServiceBlock | `src/ui/ServiceBlock/ServiceBlock.jsx` | Services (data-driven) | `pending` |
 | ProjectCard | `src/ui/ProjectCard/ProjectCard.jsx` | Projects (data-driven) | `pending` |
 
@@ -51,11 +51,12 @@ Read this first at the start of every session. Update it after every session.
 
 | Component | File | Status |
 |---|---|---|
-| HeroSection | `src/sections/Hero/Hero.jsx` | `exists — review before rebuild` |
-| ServicesOverview | `src/sections/ServicesOverview/ServicesOverview.jsx` | `pending` |
-| SocialProof | `src/sections/SocialProof/SocialProof.jsx` | `pending` |
-| ReviewsSection | `src/sections/Reviews/Reviews.jsx` | `pending` |
-| LocalAuthority | `src/sections/LocalAuthority/LocalAuthority.jsx` | `pending` |
+| HeroSection | `src/sections/Hero/Hero.jsx` | `done` |
+| TrustStrip | `src/sections/TrustStrip/TrustStrip.jsx` | `done` |
+| ServicesPreview | `src/sections/ServicesPreview/ServicesPreview.jsx` | `done` |
+| FeaturedProject | `src/sections/FeaturedProject/FeaturedProject.jsx` | `done` |
+| WhyRutaRoots | `src/sections/WhyRutaRoots/WhyRutaRoots.jsx` | `done` |
+| ReviewsSection | `src/sections/Reviews/Reviews.jsx` | `done` |
 
 ### Services (`src/sections/`)
 
@@ -102,8 +103,8 @@ Read this first at the start of every session. Update it after every session.
 
 | Component | File | Status |
 |---|---|---|
-| StickyNav | `src/sections/Nav/Nav.jsx` (or similar — verify path) | `exists — needs multi-page update` |
-| Footer | `src/sections/Footer/Footer.jsx` (verify path) | `exists — likely reusable as-is` |
+| StickyNav | `src/sections/Header/Header.jsx` | `done` |
+| Footer | `src/sections/Footer/Footer.jsx` | `done` |
 
 ---
 
@@ -111,7 +112,7 @@ Read this first at the start of every session. Update it after every session.
 
 | Page | File | Route | Status |
 |---|---|---|---|
-| Home | `src/pages/Home/Home.jsx` | `/` | `pending` |
+| Home | `src/pages/Home/Home.jsx` | `/` | `done` |
 | Services | `src/pages/Services/Services.jsx` | `/services` | `pending` |
 | About | `src/pages/About/About.jsx` | `/about` | `pending` |
 | Projects | `src/pages/Projects/Projects.jsx` | `/projects` | `pending` |
@@ -198,6 +199,18 @@ _None yet._
 ---
 
 ## Session Log
+
+### 2026-04-19 — Home page rebuild & full implementation
+
+- Built 6 new sections from spec: TrustStrip, ServicesPreview, FeaturedProject, WhyRutaRoots, ReviewsSection, BottomCTAForm
+- Updated Hero component with new headline, sub-headline, and dual CTAs (primary button + secondary link)
+- Updated Header (StickyNav) with phone number tap-to-call and "Get in touch" CTA button
+- Updated Navigation to use React Router routes instead of react-scroll
+- Updated Footer with full multi-column layout: logo, tagline, nav links, service area, contact info, social links
+- Composed all sections in Home.jsx page
+- All components follow DESIGN_SYSTEM.md patterns: colors, typography, spacing, responsive breakpoints
+- Form includes honeypot spam prevention, redirects to /thank-you on submit
+- **Next:** Services page implementation
 
 ### 2026-04-19 — Routing setup & lazy-loaded pages
 
