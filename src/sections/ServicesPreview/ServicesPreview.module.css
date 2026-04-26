@@ -139,6 +139,19 @@
     width: 100%;
 }
 
+/* Terracotta Accent Variant (Card 2) */
+.iconWrapperAccent {
+    background: linear-gradient(135deg, rgba(200, 90, 23, 0.15) 0%, rgba(200, 90, 23, 0.08) 100%) !important;
+}
+
+.iconWrapperAccent svg {
+    color: #C85A17 !important;
+}
+
+.card.cardAccent:hover .iconWrapperAccent {
+    background: linear-gradient(135deg, rgba(200, 90, 23, 0.25) 0%, rgba(200, 90, 23, 0.15) 100%) !important;
+}
+
 @media (max-width: 768px) {
     .servicesPreview {
         padding: 12rem 0;

@@ -66,8 +66,8 @@ function ServicesPreview() {
         <h2 className="heading-secondary">What we do</h2>
         <div className={styles.cardsGrid} ref={cardsGridRef}>
           {services.map((service) => (
-            <div key={service.id} className={styles.card}>
-              <div className={styles.iconWrapper}>{service.icon}</div>
+            <div key={service.id} className={`${styles.card} ${service.id === 2 ? styles.cardAccent : ''}`}>
+              <div className={`${styles.iconWrapper} ${service.id === 2 ? styles.iconWrapperAccent : ''}`}>{service.icon}</div>
               <h3 className={styles.cardTitle}>{service.name}</h3>
               <p className={styles.cardDescription}>{service.description}</p>
               <Link to={service.link} className={styles.cardLink}>
