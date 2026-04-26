@@ -66,6 +66,10 @@ img {
 
 .heading-secondary {
   font-size: clamp(3rem, 3.6vw, 4.4rem);
+  background: linear-gradient(135deg, var(--color-green) 0%, #1a5c28 45%, var(--color-light-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .heading-tertiary {

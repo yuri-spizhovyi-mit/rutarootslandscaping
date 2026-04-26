@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import styles from "./ServicesPreview.module.css";
+import { useCursorGlow } from "../../hooks/useCursorGlow";
 
 function ServicesPreview() {
+  const cardsGridRef = useRef(null);
+  useCursorGlow(cardsGridRef, `.${styles.card}`);
   const services = [
     {
       id: 1,
@@ -28,7 +32,7 @@ function ServicesPreview() {
       <div className={styles.container}>
         <div className="sub-heading">Our Services</div>
         <h2 className="heading-secondary">What we do</h2>
-        <div className={styles.cardsGrid}>
+        <div className={styles.cardsGrid} ref={cardsGridRef}>
           {services.map((service) => (
             <div key={service.id} className={styles.card}>
               <h3 className={styles.cardTitle}>{service.name}</h3>

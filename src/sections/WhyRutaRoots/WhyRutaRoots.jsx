@@ -1,6 +1,10 @@
+import { useRef } from "react";
 import styles from "./WhyRutaRoots.module.css";
+import { useCursorGlow } from "../../hooks/useCursorGlow";
 
 function WhyRutaRoots() {
+  const gridRef = useRef(null);
+  useCursorGlow(gridRef, `.${styles.block}`);
   const differentiators = [
     {
       id: 1,
@@ -30,7 +34,7 @@ function WhyRutaRoots() {
         <div className="sub-heading">Why Choose Us</div>
         <h2 className="heading-secondary">Why homeowners choose Ruta Roots</h2>
 
-        <div className={styles.grid}>
+        <div className={styles.grid} ref={gridRef}>
           {differentiators.map((diff) => (
             <div key={diff.id} className={styles.block}>
               <h3 className={styles.blockTitle}>{diff.title}</h3>
