@@ -77,11 +77,11 @@ function ReviewsSection() {
             style={{
               transform: `translateX(calc(-${((currentReview - 1 + reviews.length) % reviews.length) * 33.333}% - ${((currentReview - 1 + reviews.length) % reviews.length) * 2}rem))`
             }}>
-            {reviews.map((review, index) => (
+            {[...reviews, ...reviews].map((review, index) => (
               <div
-                key={review.id}
+                key={`${review.id}-${Math.floor(index / reviews.length)}`}
                 className={styles.reviewCard}
-                data-active={index === currentReview ? "true" : "false"}
+                data-active={index === currentReview || index === currentReview + reviews.length ? "true" : "false"}
               >
                 <div className={styles.stars}>
                   {"★".repeat(review.rating)}
