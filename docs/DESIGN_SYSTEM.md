@@ -1,9 +1,12 @@
 # Design System Reference
 
-**Purpose:** This document captures the design patterns, colors, typography, and component styling from the current Ruta Roots website. Use this as the authoritative source when building new pages to ensure visual consistency across the entire site.
+**Purpose:** Authoritative design reference for all pages. Covers color
+palette, typography, spacing, component patterns, and animation library.
+Ensure visual consistency across the entire site.
 
-**Last Updated:** 2026-04-19  
-**Archive Branch Reference:** `archive/current-site` (contains the original implementation)
+**Last Updated:** 2026-04-26  
+**Archive Branch Reference:** `archive/current-site`  
+**Current Build:** Home page complete — all patterns below are live
 
 ---
 
@@ -19,6 +22,7 @@ All colors are defined as CSS custom properties in `src/general.css`:
   --color-medium-grey: #555;
   --color-green: #2b8a3e;
   --color-light-green: #968b39;
+  --color-terracotta: #C85A17;
 }
 ```
 
@@ -27,11 +31,12 @@ All colors are defined as CSS custom properties in `src/general.css`:
 | Color | Hex Code | Usage |
 |-------|----------|-------|
 | White | `#fff` | Primary background, text on dark backgrounds |
-| White Transparent | `#ffffffb3` | Navigation overlay, semi-transparent backgrounds |
-| Dark Grey | `#333` | Primary text color, headings, dark elements |
-| Medium Grey | `#555` | Secondary text color, descriptions, subtle elements |
-| Green | `#2b8a3e` | Primary accent color, sub-headings, CTAs, highlights |
-| Light Green (Olive) | `#968b39` | Hero section background, secondary accents |
+| White Transparent | `#ffffffb3` | Navigation overlay, semi-transparent |
+| Dark Grey | `#333` | Primary text, headings, dark elements |
+| Medium Grey | `#555` | Secondary text, descriptions |
+| Green | `#2b8a3e` | Primary accent, icons, CTAs, buttons |
+| Light Green (Olive) | `#968b39` | Hero background, secondary accents |
+| Terracotta | `#C85A17` | Accent accent (40% split), icons, links |
 
 ---
 
@@ -42,12 +47,12 @@ All colors are defined as CSS custom properties in `src/general.css`:
 
 ### Heading Hierarchy
 
-| Class | Font Size | Use Case | Notes |
+| Class | Font Size | Use Case | Style |
 |-------|-----------|----------|-------|
-| `.heading-primary` | `clamp(3.6rem, 4.4vw, 5.2rem)` | Main page titles | Responsive sizing |
-| `.heading-secondary` | `clamp(3rem, 3.6vw, 4.4rem)` | Section headings | Responsive sizing |
-| `.heading-tertiary` | `clamp(2rem, 2.2vw, 2.4rem)` | Sub-section headings | Responsive sizing |
-| `.heading-tertiary--sm` | `clamp(1.8rem, 1.8vw, 2rem)` | Card titles | Responsive sizing |
+| `.heading-primary` | `clamp(3.6, 4.4vw, 5.2rem)` | Main titles | Dark grey |
+| `.heading-secondary` | `clamp(3rem, 3.6vw, 4.4rem)` | Sections | Gradient |
+| `.heading-tertiary` | `clamp(2rem, 2.2vw, 2.4rem)` | Sub-heads | Dark grey |
+| `.heading-tertiary--sm` | `clamp(1.8rem, 1.8vw, 2rem)` | Cards | Dark grey |
 
 **All headings:**
 - Line height: `1.2`
@@ -205,6 +210,180 @@ Standard section padding: `20rem 0` (desktop), `9.8rem 0` (mobile)
 
 ---
 
+## Animations & Visual Effects
+
+All animations use GPU-accelerated CSS transforms and GSAP for performance.
+**Timing Function:** `cubic-bezier(0.34, 1.56, 0.64, 1)` (premium ease)
+
+### 1. Gradient Text (Section Headings)
+
+**Applied to:** `.heading-secondary`
+
+```css
+.heading-secondary {
+  background: linear-gradient(
+    135deg,
+    var(--color-green) 0%,
+    #1a5c28 45%,
+    var(--color-terracotta) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+```
+
+**Usage:** Automatic on all h2 section headings. No extra work needed.
+
+### 2. Parallax Scrolling (Hero Background)
+
+**Hook:** `useParallax(speed)` in `src/hooks/useParallax.js`
+
+```jsx
+const bgRef = useParallax(0.5);  // 0.5x scroll speed
+return <div ref={bgRef}><img src="..." /></div>;
+```
+
+**Specs:**
+
+- Smooth depth effect on hero/large image sections
+- Speed 0.5 = background moves at half scroll speed
+- Performance: Uses `requestAnimationFrame` (60fps)
+
+### 3. Scroll-Triggered Fade & Slide-Up
+
+**Hook:** `useScrollReveal(options)` in `src/hooks/useScrollReveal.js`
+
+For headings:
+
+```jsx
+const headingRef = useScrollReveal({ duration: 0.8, distance: 40 });
+return <h2 ref={headingRef}>Title</h2>;
+```
+
+For card groups (GSAP):
+
+```jsx
+useEffect(() => {
+  const cards = cardsRef.current.querySelectorAll(`.${styles.card}`);
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      gsap.from(cards, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,  // 150ms between cards
+        ease: 'power2.out',
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+  observer.observe(cardsRef.current);
+}, []);
+```
+
+**Specs:**
+- Opacity: 0 → 1
+- Y-axis: 40px up
+- Duration: 0.8s
+- Stagger: 0.12s (tight grids), 0.15s (loose grids)
+- Fires once per element
+
+### 4. Cursor-Reactive Glow Shadows
+
+**Hook:** `useCursorGlow(ref, selector)` in `src/hooks/useCursorGlow.js`
+
+```jsx
+const containerRef = useRef(null);
+useCursorGlow(containerRef, `.${styles.card}`);
+
+return (
+  <div ref={containerRef}>
+    <div className={styles.card}>...</div>
+  </div>
+);
+```
+
+**CSS Setup:**
+
+```css
+.card {
+  box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px)
+    30px rgba(43, 138, 62, 0.1);
+}
+.card:hover {
+  box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px)
+    50px rgba(43, 138, 62, 0.3),
+    0 12px 30px rgba(0, 0, 0, 0.08);
+}
+```
+
+**Specs:**
+- Dynamic shadow follows cursor position
+- One listener per container (efficient)
+- `requestAnimationFrame` for smooth tracking
+- Applied to: ServicesPreview cards, WhyRutaRoots blocks
+
+### 5. Green Glow Text-Shadow
+
+**Pattern:** Applied to prominent headings (hero h1, large titles)
+
+```css
+.heading {
+  text-shadow: 0 0 60px rgba(43, 138, 62, 0.4),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+}
+```
+
+**Specs:**
+- Outer glow: 60px blur
+- Inner shadow: 4px drop
+- Green tint at 40% opacity
+- Use on white/light text only
+
+### 6. Gradient Borders (Hover Effect)
+
+**Pattern:** On interactive cards/blocks
+
+```css
+.card {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, var(--color-green) 0%,
+      var(--color-terracotta) 100%) border-box;
+  background-clip: padding-box, border-box;
+}
+```
+
+**Specs:**
+- Inner: White/light background
+- Border: Green→Terracotta gradient
+- Applied to: Cards, blocks, interactive elements
+
+### 7. Glassmorphic Buttons (Frosted Glass)
+
+**Pattern:** Secondary CTAs, overlay buttons
+
+```css
+.button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+```
+
+**Specs:**
+- Blur strength: 10px
+- Very subtle (5% opacity)
+- Use on dark/image backgrounds
+
+---
+
 ## Responsive Breakpoints
 
 | Breakpoint | Max Width | Font Size | Usage |
@@ -280,16 +459,33 @@ Each component has a matching `.module.css` file:
 
 ## Implementation Checklist for New Pages
 
-When building new pages (home.md, about.md, services.md, etc.), ensure:
+When building Services, About, Projects, Contact pages:
 
-- [ ] Use color palette from `:root` CSS variables
+**Color & Typography:**
+- [ ] Use CSS variables from `:root` (never hardcode hex)
+- [ ] Apply `.heading-secondary` gradient to all section titles
+- [ ] Use green (#2b8a3e) for 60%, terracotta (#C85A17) for 40%
 - [ ] Typography matches heading/description class sizes
 - [ ] Container widths use `.container-lg` or `.container-md`
-- [ ] Section padding follows `20rem 0` standard
+- [ ] Section padding: `20rem 0` (desktop), `9.8rem 0` (mobile)
+
+**Animations (Required):**
+- [ ] Use `useCursorGlow` on card/block containers
+- [ ] Use `useScrollReveal` on headings + card groups
+- [ ] Apply parallax on hero/large image sections
+- [ ] Stagger animations: 0.12s (tight), 0.15s (loose)
+- [ ] Timing: `cubic-bezier(0.34, 1.56, 0.64, 1)`
+
+**Layout & Components:**
 - [ ] Grid system uses `.grid` and `.grid--2-cols`
 - [ ] Links use `.link` class with underline animation
-- [ ] Images use responsive sizing with `image-set` where applicable
-- [ ] Responsive breakpoints follow defined breakpoint structure
+- [ ] Images use responsive sizing with `image-set`
+- [ ] Gradient borders on interactive cards
+- [ ] Green glow text-shadow on prominent text
+- [ ] Glassmorphic styling on secondary CTAs
+
+**Structure:**
+- [ ] Responsive breakpoints match defined structure
 - [ ] Header stays fixed with same styling
 - [ ] Mobile navigation uses overlay pattern with blur
 - [ ] Component filenames match directory structure
