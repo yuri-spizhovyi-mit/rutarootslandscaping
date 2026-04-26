@@ -200,7 +200,20 @@ _None yet._
 
 ## Session Log
 
-### 2026-04-19 — Home page rebuild & full implementation
+### 2026-04-20 — Enhanced hero with parallax + glow + animations
+
+- Implemented parallax scrolling hook (`useParallax`) for background image depth effect
+- Created animated scroll chevron component with bounce animation
+- Enhanced hero heading with green glow text-shadow and premium styling
+- Upgraded primary CTA button: gradient + glow + lift effect + shine sweep animation
+- Upgraded secondary CTA button: glassmorphic effect with backdrop blur + border glow
+- Added smooth cubic-bezier transitions for premium feel
+- Improved visual hierarchy with better overlay gradient
+- All animations use CSS transforms (performant, GPU-accelerated)
+- Refined typography with enhanced text shadows for readability
+- **Result:** Hero now has impressive, modern visual polish with smooth micro-interactions
+
+### 2026-04-19 — Home page rebuild & visual quality refinements
 
 - Built 6 new sections from spec: TrustStrip, ServicesPreview, FeaturedProject, WhyRutaRoots, ReviewsSection, BottomCTAForm
 - Updated Hero component with new headline, sub-headline, and dual CTAs (primary button + secondary link)
