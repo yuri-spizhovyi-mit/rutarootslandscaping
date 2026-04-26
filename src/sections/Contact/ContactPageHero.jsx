@@ -2,10 +2,12 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import styles from "./ContactPageHero.module.css";
 import { useGsapAnimation } from "../../hooks/useGsapAnimation";
+import { useParallax } from "../../hooks/useParallax";
 import { createTitleInAnimation } from "../../utils/animations/titleAnimations";
 
 function ContactPageHero() {
   const titleRef = useRef(null);
+  const bgRef = useParallax(0.5);
 
   useGsapAnimation(() => {
     createTitleInAnimation(titleRef);
@@ -13,6 +15,8 @@ function ContactPageHero() {
 
   return (
     <section className={styles.contactHero}>
+      <div className={styles.heroBg} ref={bgRef} />
+      <div className={styles.heroOverlay} />
       <div className={styles.container}>
         <div className={styles.breadcrumb}>
           <Link to="/">Home</Link>

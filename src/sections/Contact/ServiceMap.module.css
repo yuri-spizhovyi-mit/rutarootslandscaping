@@ -1,0 +1,164 @@
+.serviceMap {
+  padding: 20rem 0;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.6rem;
+  text-align: center;
+}
+
+.mapWrapper {
+  margin-top: 6rem;
+  position: relative;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 600px;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(43, 138, 62, 0.15);
+  border: 2px solid #f0f0f0;
+}
+
+:global(.leaflet-container) {
+  font-family: "Lato", system-ui;
+}
+
+:global(.leaflet-popup-content-wrapper) {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-green);
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 12px rgba(43, 138, 62, 0.2);
+}
+
+:global(.leaflet-popup-tip) {
+  background-color: var(--color-white);
+  border-left: 2px solid var(--color-green);
+  border-right: 2px solid var(--color-green);
+}
+
+.popup {
+  padding: 0.8rem;
+}
+
+.popup strong {
+  display: block;
+  color: var(--color-green);
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.popup p {
+  font-size: 1.2rem;
+  color: var(--color-medium-grey);
+  margin: 0;
+}
+
+.mapLegend {
+  display: flex;
+  gap: 2.4rem;
+  justify-content: center;
+  margin-top: 2.4rem;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  color: var(--color-dark-grey);
+}
+
+.legendColor {
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 0.3rem;
+  border: 1px solid #ddd;
+}
+
+.mapInfo {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.mapInfo p {
+  font-size: 1.6rem;
+  color: var(--color-medium-grey);
+  line-height: 1.6;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .mapContainer {
+    height: 500px;
+  }
+
+  .mapLegend {
+    gap: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceMap {
+    padding: 12rem 0;
+  }
+
+  .container {
+    padding: 0 1.8rem;
+  }
+
+  .mapContainer {
+    height: 400px;
+  }
+
+  .mapLegend {
+    gap: 1.2rem;
+  }
+
+  .legendItem {
+    font-size: 1.3rem;
+  }
+
+  .mapInfo p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceMap {
+    padding: 9.8rem 0;
+  }
+
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .mapContainer {
+    height: 320px;
+  }
+
+  .mapWrapper {
+    margin-top: 4rem;
+  }
+
+  .mapLegend {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .legendItem {
+    font-size: 1.2rem;
+    justify-content: center;
+  }
+
+  .mapInfo p {
+    font-size: 1.3rem;
+  }
+}
