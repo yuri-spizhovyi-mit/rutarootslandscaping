@@ -75,13 +75,17 @@ function ReviewsSection() {
         <div className={styles.carouselWrapper}>
           <div className={styles.carouselTrack}
             style={{
-              transform: `translateX(calc(-${((currentReview - 1 + reviews.length) % reviews.length) * 33.333}% - ${((currentReview - 1 + reviews.length) % reviews.length) * 2}rem))`
+              transform: `translateX(calc(-${currentReview * 33.333}% - ${currentReview * 2}rem))`
             }}>
-            {[...reviews, ...reviews].map((review, index) => (
+            {Array.from({ length: 10 }, (_, i) => {
+              const cardIndex = [4, 0, 1, 2, 3, 4, 0, 1, 2, 3][i];
+              const review = reviews[cardIndex];
+              const isActive = (cardIndex === currentReview);
+              return (
               <div
-                key={`${review.id}-${Math.floor(index / reviews.length)}`}
+                key={`${review.id}-${i}`}
                 className={styles.reviewCard}
-                data-active={index === currentReview || index === currentReview + reviews.length ? "true" : "false"}
+                data-active={isActive ? "true" : "false"}
               >
                 <div className={styles.stars}>
                   {"★".repeat(review.rating)}
@@ -98,7 +102,8 @@ function ReviewsSection() {
 
                 <div className={styles.viaLabel}>via Google</div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
