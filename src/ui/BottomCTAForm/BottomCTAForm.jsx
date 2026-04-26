@@ -1,9 +1,36 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
 import styles from "./BottomCTAForm.module.css";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 function BottomCTAForm({ title = "Tell us about your project", subtitle = "Share a few details and we'll get back to you within 1 business day." }) {
   const navigate = useNavigate();
+  const headingRef = useScrollReveal({ duration: 0.8, distance: 40, delay: 0 });
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    if (!formRef.current) return;
+
+    const formElements = formRef.current.querySelectorAll(`.${styles.formGroup}, .${styles.submitButton}`);
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        gsap.from(formElements, {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          delay: 0.2,
+          stagger: 0.08,
+          ease: 'power2.out',
+        });
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    observer.observe(formRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -42,10 +69,10 @@ function BottomCTAForm({ title = "Tell us about your project", subtitle = "Share
       <div className={styles.container}>
         <div className={styles.formWrapper}>
           <div className="sub-heading">Get Started</div>
-          <h2 className="heading-secondary">{title}</h2>
+          <h2 className="heading-secondary" ref={headingRef}>{title}</h2>
           <p className={styles.subtitle}>{subtitle}</p>
 
-          <form onSubmit={handleSubmit} className={styles.form}>
+          <form onSubmit={handleSubmit} className={styles.form} ref={formRef}>
             <div className={styles.formGroup}>
               <input
                 type="text"
