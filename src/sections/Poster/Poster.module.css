@@ -1,9 +1,22 @@
-.poster{
-    aspect-ratio: 1400/660;
+.posterSection {
+  width: 100%;
+  overflow: hidden;
 }
 
-@media (max-width:48em){
-    .poster{
-        aspect-ratio: 16/12;
-    }
+.posterWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.poster {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1400/660;
+}
+
+@media (max-width: 48em) {
+  .poster {
+    aspect-ratio: 16/12;
+  }
 }
