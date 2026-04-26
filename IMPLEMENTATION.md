@@ -397,6 +397,19 @@ _None yet._
 
 ## Session Log
 
+### 2026-04-26 — Reviews carousel refinements & looping carousel fix
+
+- Fixed Reviews carousel to properly center active card with semi-visible adjacent cards
+  - Issue 1: Active card was on the left instead of center (nth-child selector limitation)
+  - Fix: Added `data-active` attribute to dynamically mark the active card regardless of DOM position
+  - Issue 2: Carousel didn't loop properly at Review 1 (single card visible)
+  - Fix: Restructured carousel with pre-shifted card order [4,0,1,2,3] repeated to enable smooth looping
+  - Issue 3: Transition from Review 1→2 was jumping instead of smooth
+  - Fix: Simplified transform calculation and aligned card rendering order with shift logic
+- Result: Reviews carousel now shows 3 cards at all times, active card centered, smooth transitions 1→2→3→4→5→1
+- All 6 Home page sections remain fully functional
+- **Status:** Home page build complete (step 2 done) — ready for Services page (step 3)
+
 ### 2026-04-20 — Enhanced hero with parallax + glow + animations
 
 - Implemented parallax scrolling hook (`useParallax`) for background image depth effect
