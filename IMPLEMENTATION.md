@@ -150,6 +150,203 @@ Read this first at the start of every session. Update it after every session.
 
 ---
 
+## Visual Effects & Animation Library
+
+These patterns are implemented on the Home page and should be reused consistently across all other pages for visual cohesion.
+
+### 1. Gradient Text on Section Headings
+
+**Pattern:** Applied to `.heading-secondary` globally in `src/general.css`
+
+```css
+.heading-secondary {
+  background: linear-gradient(135deg, #2b8a3e 0%, #1a5c28 45%, #968b39 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+```
+
+**Usage:** All section headings (h2 with `className="heading-secondary"`) automatically get the gradient.  
+**Applied to:** ServicesPreview, FeaturedProject, WhyRutaRoots, ReviewsSection headings
+
+---
+
+### 2. Cursor-Reactive Shadows (Dynamic Glow Following Cursor)
+
+**Hook:** `src/hooks/useCursorGlow.js`
+
+**How to use:**
+```jsx
+import { useRef } from 'react';
+import { useCursorGlow } from '../../hooks/useCursorGlow';
+
+function MyComponent() {
+  const containerRef = useRef(null);
+  useCursorGlow(containerRef, `.${styles.card}`);  // selector for cards/blocks
+  
+  return (
+    <div ref={containerRef}>
+      <div className={styles.card}>...</div>
+    </div>
+  );
+}
+```
+
+**CSS Setup:** Add CSS custom properties to your card/block styles:
+```css
+.card {
+  box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px) 30px rgba(43, 138, 62, 0.1);
+}
+.card:hover {
+  box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px) 50px rgba(43, 138, 62, 0.3), 0 12px 30px rgba(0,0,0,0.08);
+}
+```
+
+**Performance:** Uses `requestAnimationFrame` for 60fps smooth tracking. One listener per container (efficient).  
+**Applied to:** ServicesPreview cards, WhyRutaRoots blocks
+
+---
+
+### 3. Scroll-Triggered Fade-In & Slide-Up Animations
+
+**Hook:** `src/hooks/useScrollReveal.js`
+
+**How to use (for headings):**
+```jsx
+import { useScrollReveal } from '../../hooks/useScrollReveal';
+
+function MySection() {
+  const headingRef = useScrollReveal({ duration: 0.8, distance: 40, delay: 0 });
+  
+  return <h2 className="heading-secondary" ref={headingRef}>My Title</h2>;
+}
+```
+
+**How to use (for card groups):**
+```jsx
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+
+function MyComponent() {
+  const cardsRef = useRef(null);
+  
+  useEffect(() => {
+    if (!cardsRef.current) return;
+    const cards = cardsRef.current.querySelectorAll(`.${styles.card}`);
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        gsap.from(cards, {
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          delay: 0.2,
+          stagger: 0.15,  // 150ms between each card
+          ease: 'power2.out',
+        });
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    observer.observe(cardsRef.current);
+    return () => observer.disconnect();
+  }, []);
+  
+  return <div ref={cardsRef}>...</div>;
+}
+```
+
+**Pattern:** Opacity 0 → 1 + Slide up 40px with staggered timing. Fires once per element (observed only).  
+**Stagger values:** 0.12s for tight grids (2×2), 0.15s for loose grids (3-column)
+
+---
+
+### 4. Parallax Scrolling (Hero Background)
+
+**Hook:** `src/hooks/useParallax.js`
+
+**How to use:**
+```jsx
+import { useParallax } from '../../hooks/useParallax';
+
+function HeroSection() {
+  const bgRef = useParallax(0.5);  // 0.5x speed (half the scroll speed)
+  
+  return (
+    <div className={styles.heroBg} ref={bgRef}>
+      <img src="..." />
+    </div>
+  );
+}
+```
+
+**Applied to:** Hero section background image
+
+---
+
+### 5. Green Glow Text Shadow
+
+**Pattern:** Applied to prominent headings (like hero h1)
+
+```css
+.heading {
+  text-shadow: 0 0 60px rgba(43, 138, 62, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+```
+
+**Applied to:** Hero heading (`.heroHeading`)
+
+---
+
+### 6. Gradient Borders (Card Hover)
+
+**Pattern:** Use `background-clip: border-box` + `border-box` technique
+
+```css
+.card {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #2b8a3e 0%, #968b39 100%) border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+```
+
+**Applied to:** ServicesPreview cards, WhyRutaRoots blocks
+
+---
+
+### 7. Glassmorphic Effect (Frosted Glass Buttons)
+
+**Pattern:** Use `backdrop-filter: blur()` with semi-transparent background
+
+```css
+.button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+```
+
+**Applied to:** Secondary CTA buttons (e.g., hero "Learn more" link)
+
+---
+
+## Implementation Checklist for New Pages
+
+When building Services, About, Projects, Contact pages:
+
+- [ ] Add `.heading-secondary` gradient text automatically (no extra work needed)
+- [ ] Use `useCursorGlow` on card/block containers for dynamic shadows
+- [ ] Use `useScrollReveal` on headings + card groups for entrance animations
+- [ ] Use parallax on hero/large image sections for depth
+- [ ] Apply gradient borders to interactive card elements
+- [ ] Use green glow text-shadow on prominent display text
+- [ ] Glassmorphic styling on secondary CTAs or overlay buttons
+- [ ] Stagger animations consistently: 0.12s (tight grids), 0.15s (loose grids)
+- [ ] All animations use cubic-bezier(0.34, 1.56, 0.64, 1) for premium feel
+
+---
+
 ## Image Inventory
 
 **All images stored in:** `public/images/sections/<section-name>/`
