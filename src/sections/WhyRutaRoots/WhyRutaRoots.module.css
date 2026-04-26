@@ -95,6 +95,19 @@
     background: linear-gradient(135deg, rgba(43, 138, 62, 0.25) 0%, rgba(43, 138, 62, 0.15) 100%);
 }
 
+/* Terracotta Accent Variant (Blocks 2 & 4) */
+.iconWrapperAccent {
+    background: linear-gradient(135deg, rgba(200, 90, 23, 0.15) 0%, rgba(200, 90, 23, 0.08) 100%) !important;
+}
+
+.iconWrapperAccent svg {
+    color: #C85A17 !important;
+}
+
+.block:hover .iconWrapperAccent {
+    background: linear-gradient(135deg, rgba(200, 90, 23, 0.25) 0%, rgba(200, 90, 23, 0.15) 100%) !important;
+}
+
 .blockTitle {
     font-size: clamp(1.8rem, 2.2vw, 2rem);
     font-weight: 600;

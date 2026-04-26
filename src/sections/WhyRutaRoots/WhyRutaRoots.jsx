@@ -47,6 +47,7 @@ function WhyRutaRoots() {
       icon: <ShieldIcon />,
       title: "Properly insured and responsible",
       description: "Ruta Roots carries liability insurance and operates with proper business practices that protect your property.",
+      accent: true,
     },
     {
       id: 3,
@@ -59,6 +60,7 @@ function WhyRutaRoots() {
       icon: <HandshakeIcon />,
       title: "Reliable from start to finish",
       description: "You can count on consistent service, follow-through, and commitment to completing projects you're satisfied with.",
+      accent: true,
     },
   ];
 
@@ -71,7 +73,7 @@ function WhyRutaRoots() {
         <div className={styles.grid} ref={gridRef}>
           {differentiators.map((diff) => (
             <div key={diff.id} className={styles.block}>
-              <div className={styles.iconWrapper}>{diff.icon}</div>
+              <div className={`${styles.iconWrapper} ${diff.accent ? styles.iconWrapperAccent : ''}`}>{diff.icon}</div>
               <h3 className={styles.blockTitle}>{diff.title}</h3>
               <p className={styles.blockDescription}>{diff.description}</p>
             </div>

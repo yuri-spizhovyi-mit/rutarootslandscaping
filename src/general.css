@@ -17,6 +17,7 @@ html {
   --color-medium-grey: #555;
   --color-green: #2b8a3e;
   --color-light-green: #968b39;
+  --color-terracotta: #C85A17;
 }
 
 body {
@@ -66,10 +67,7 @@ img {
 
 .heading-secondary {
   font-size: clamp(3rem, 3.6vw, 4.4rem);
-  background: linear-gradient(135deg, var(--color-green) 0%, #1a5c28 45%, var(--color-light-green) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-dark-grey);
 }
 
 .heading-tertiary {

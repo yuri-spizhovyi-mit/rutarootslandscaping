@@ -57,6 +57,15 @@
     line-height: 1;
 }
 
+.statAccent {
+    background: transparent !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: var(--color-terracotta) !important;
+    color: var(--color-terracotta) !important;
+    background-image: none !important;
+}
+
 .label {
     font-size: 1.8rem;
     color: var(--color-medium-grey);

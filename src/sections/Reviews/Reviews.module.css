@@ -4,25 +4,43 @@
 }
 
 .container {
-    max-width: 110rem;
+    max-width: 130rem;
     margin: 0 auto;
     padding: 0 3.6rem;
     text-align: center;
 }
 
+/* Carousel */
+.carouselWrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+}
+
+.carouselTrack {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 .reviewCard {
+    flex: 0 0 calc(33.333% - 1.333rem);
     background: var(--color-white);
     border-radius: 1rem;
-    padding: 4rem;
-    margin-top: 6rem;
-    max-width: 70rem;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 3rem;
     border: 2px solid transparent;
     background-clip: padding-box;
     position: relative;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     overflow: hidden;
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+.reviewCard[data-active="true"] {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .reviewCard::before {
@@ -59,7 +77,7 @@
 
 .reviewCard:hover {
     box-shadow: 0 0 50px rgba(43, 138, 62, 0.2), 0 12px 40px rgba(0, 0, 0, 0.08);
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1);
 }
 
 .reviewCard:hover::before {
@@ -72,12 +90,12 @@
 
 .stars {
     font-size: 2rem;
-    color: #fbbf24;
+    color: var(--color-terracotta);
     margin-bottom: 1.6rem;
 }
 
 .reviewText {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--color-dark-grey);
     line-height: 1.8;
     margin-bottom: 2rem;
@@ -89,9 +107,10 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--color-medium-grey);
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .date {
@@ -99,15 +118,59 @@
 }
 
 .viaLabel {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #999;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation */
+.reviewNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.navButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    background: linear-gradient(135deg, var(--color-green) 0%, #1a5c28 100%);
+    color: var(--color-white);
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43, 138, 62, 0.3);
+}
+
+.navButton:active {
+    transform: translateY(0);
+}
+
+.navButton svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.reviewCounter {
+    font-size: 1.4rem;
+    color: var(--color-dark-grey);
+    font-weight: 600;
+    min-width: 15rem;
 }
 
 .readMoreLink {
     display: inline-block;
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-size: 1.6rem;
     color: var(--color-dark-grey);
     text-decoration: none;
@@ -130,12 +193,68 @@
     width: 0;
 }
 
+@media (max-width: 1024px) {
+    .reviewCard {
+        flex: 0 0 calc(50% - 1rem);
+        padding: 2.4rem;
+    }
+
+    .reviewCard[data-active="true"] {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .reviewCard[data-active="false"] {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+}
+
 @media (max-width: 768px) {
     .reviews {
         padding: 12rem 0;
     }
+
+    .container {
+        padding: 0 1.8rem;
+    }
+
     .reviewCard {
+        flex: 0 0 100%;
         padding: 2.4rem;
+    }
+
+    .carouselTrack {
+        gap: 1rem;
+    }
+
+    .reviewCard[data-active="true"] {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .reviewCard[data-active="false"] {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    .reviewNav {
+        gap: 1.2rem;
+    }
+
+    .navButton {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .navButton svg {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .reviewCounter {
+        font-size: 1.2rem;
+        min-width: auto;
     }
 }
 
@@ -143,13 +262,26 @@
     .reviews {
         padding: 9.8rem 0;
     }
-    .container {
-        padding: 0 1.8rem;
-    }
+
     .reviewCard {
         padding: 1.6rem;
     }
+
     .reviewText {
         font-size: 1.4rem;
+    }
+
+    .navButton {
+        width: 3.6rem;
+        height: 3.6rem;
+    }
+
+    .navButton svg {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    .reviewCounter {
+        font-size: 1rem;
     }
 }

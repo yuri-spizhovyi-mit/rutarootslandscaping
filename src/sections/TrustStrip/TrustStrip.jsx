@@ -3,9 +3,9 @@ import styles from "./TrustStrip.module.css";
 
 function TrustStrip() {
   const credentials = [
-    { stat: "15+", label: "years of landscaping experience" },
-    { stat: "3", label: "years serving West Kelowna" },
-    { stat: "5★", label: "built on referrals & repeat clients" },
+    { id: 1, stat: "15+", label: "years of landscaping experience" },
+    { id: 2, stat: "3", label: "years serving West Kelowna" },
+    { id: 3, stat: "5★", label: "built on referrals & repeat clients" },
   ];
 
   const listRef = useRef(null);
@@ -65,7 +65,7 @@ function TrustStrip() {
         <ul className={styles.credentialsList} ref={listRef}>
           {credentials.map((cred, index) => (
             <li key={index} className={styles.credentialItem}>
-              <div className={styles.stat}>{cred.stat}</div>
+              <div className={`${styles.stat} ${cred.id === 3 ? styles.statAccent : ''}`}>{cred.stat}</div>
               <div className={styles.label}>{cred.label}</div>
             </li>
           ))}
