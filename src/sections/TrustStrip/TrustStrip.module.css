@@ -48,7 +48,7 @@
 }
 
 .stat {
-    font-size: clamp(4.2rem, 7vw, 6.4rem);
+    font-size: clamp(3.6rem, 5vw, 5rem);
     font-weight: 800;
     background: linear-gradient(135deg, var(--color-green) 0%, #1a5c28 45%, var(--color-light-green) 100%);
     -webkit-background-clip: text;
@@ -58,9 +58,10 @@
 }
 
 .label {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--color-medium-grey);
     line-height: 1.6;
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -74,11 +75,12 @@
     }
 
     .stat {
-        font-size: clamp(3.4rem, 5.5vw, 5rem);
+        font-size: clamp(2.8rem, 4vw, 4rem);
     }
 
     .label {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        font-weight: 500;
     }
 }
 
@@ -107,10 +109,11 @@
     }
 
     .stat {
-        font-size: clamp(3rem, 8vw, 4.4rem);
+        font-size: clamp(2.4rem, 6vw, 3.6rem);
     }
 
     .label {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        font-weight: 500;
     }
 }
