@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import QuoteForm from "../../ui/QuoteForm/QuoteForm";
 import ContactTrustColumn from "./ContactTrustColumn";

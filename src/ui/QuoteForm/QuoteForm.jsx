@@ -10,14 +10,6 @@ const VALID_SERVICES = [
   "irrigation",
 ];
 
-const SERVICE_LABELS = {
-  "lawn-care": "Lawn care & maintenance",
-  "landscape-design": "Landscape design & installation",
-  hardscaping: "Hardscaping",
-  "seasonal-cleanup": "Seasonal cleanup",
-  irrigation: "Irrigation",
-};
-
 function QuoteForm() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -100,7 +92,7 @@ function QuoteForm() {
           {...register("phone", {
             required: "Phone number is required",
             pattern: {
-              value: /^\+?1?\s*\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{4}$/,
+              value: /^\+?1?\s*\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/,
               message: "Enter a valid phone number",
             },
           })}
