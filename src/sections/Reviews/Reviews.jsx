@@ -1,39 +1,13 @@
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
 import styles from "./Reviews.module.css";
-import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 function ReviewsSection() {
-  const headingRef = useScrollReveal({ duration: 0.8, distance: 40, delay: 0 });
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    if (!cardRef.current) return;
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        gsap.from(cardRef.current, {
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          delay: 0.2,
-          ease: 'power2.out',
-        });
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className={styles.reviews}>
       <div className={styles.container}>
         <div className="sub-heading">Client Testimonials</div>
-        <h2 className="heading-secondary" ref={headingRef}>What clients say</h2>
+        <h2 className="heading-secondary">What clients say</h2>
 
-        <div className={styles.reviewCard} ref={cardRef}>
+        <div className={styles.reviewCard}>
           <div className={styles.stars}>★★★★★</div>
 
           <p className={styles.reviewText}>

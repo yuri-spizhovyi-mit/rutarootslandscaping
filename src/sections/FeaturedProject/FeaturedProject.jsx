@@ -1,43 +1,15 @@
 import { Link } from "react-router-dom";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
 import styles from "./FeaturedProject.module.css";
-import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 function FeaturedProject() {
-  const headingRef = useScrollReveal({ duration: 0.8, distance: 40, delay: 0 });
-  const imagesWrapperRef = useRef(null);
-
-  useEffect(() => {
-    if (!imagesWrapperRef.current) return;
-
-    const images = imagesWrapperRef.current.querySelectorAll(`.${styles.imageColumn}`);
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        gsap.from(images, {
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          delay: 0.2,
-          stagger: 0.15,
-          ease: 'power2.out',
-        });
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    observer.observe(imagesWrapperRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className={styles.featuredProject}>
       <div className={styles.container}>
         <div className="sub-heading">Project Showcase</div>
-        <h2 className="heading-secondary" ref={headingRef}>Recent work</h2>
+        <h2 className="heading-secondary">Recent work</h2>
 
         <div className={styles.projectContent}>
-          <div className={styles.imagesWrapper} ref={imagesWrapperRef}>
+          <div className={styles.imagesWrapper}>
             <div className={styles.imageColumn}>
               <div className={styles.label}>Before</div>
               <img
