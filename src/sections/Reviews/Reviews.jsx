@@ -75,7 +75,7 @@ function ReviewsSection() {
         <div className={styles.carouselWrapper}>
           <div className={styles.carouselTrack}
             style={{
-              transform: `translateX(calc(-${currentReview * 33.333}% - ${currentReview * 2}rem))`
+              transform: `translateX(calc(-${((currentReview - 1 + reviews.length) % reviews.length) * 33.333}% - ${((currentReview - 1 + reviews.length) % reviews.length) * 2}rem))`
             }}>
             {reviews.map((review, index) => (
               <div
