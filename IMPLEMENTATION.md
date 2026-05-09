@@ -27,7 +27,7 @@ Read this first at the start of every session. Update it after every session.
 | 1 | Routing setup — `src/App.jsx` | `done` |
 | 2 | Home page rebuild | `done` |
 | 3 | Contact page | `done` |
-| 4 | Thank You page | `pending` |
+| 4 | Thank You page | `done` |
 | 5 | Services page | `pending` |
 | 6 | About page | `pending` |
 | 7 | Projects page | `pending` |

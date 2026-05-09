@@ -36,7 +36,7 @@ function QuoteForm() {
     }
 
     try {
-      const response = await fetch("/api/contact", {
+      await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -47,13 +47,11 @@ function QuoteForm() {
           bestTime: data.bestTime,
         }),
       });
-
-      if (response.ok) {
-        navigate("/thank-you");
-      }
     } catch (error) {
       console.error("Form submission error:", error);
     }
+
+    navigate("/thank-you");
   };
 
   return (
