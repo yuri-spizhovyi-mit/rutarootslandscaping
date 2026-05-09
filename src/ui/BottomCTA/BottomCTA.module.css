@@ -1,0 +1,115 @@
+.bottomCta {
+  padding: 10rem 0;
+  background: linear-gradient(135deg, var(--color-green) 0%, #1a5c28 60%, #0f3d18 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.bottomCta::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -8%;
+  width: 48rem;
+  height: 48rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bottomCta::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -4%;
+  width: 36rem;
+  height: 36rem;
+  background: radial-gradient(circle, rgba(150, 139, 57, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 3.6rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heading {
+  font-size: clamp(2.8rem, 3.8vw, 4.2rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.4rem;
+}
+
+.subHeading {
+  font-size: clamp(1.6rem, 1.8vw, 1.9rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin-bottom: 4rem;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.ctaPrimary {
+  display: inline-block;
+  padding: 1.6rem 4rem;
+  background: white;
+  color: var(--color-green);
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 700;
+  border-radius: 0.6rem;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.01em;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+}
+
+.ctaSecondary {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ctaSecondary:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .bottomCta {
+    padding: 7.2rem 0;
+  }
+
+  .container {
+    padding: 0 2.4rem;
+  }
+
+  .ctaPrimary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottomCta {
+    padding: 6rem 0;
+  }
+
+  .container {
+    padding: 0 1.8rem;
+  }
+}

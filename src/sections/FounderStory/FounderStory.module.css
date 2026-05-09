@@ -1,0 +1,145 @@
+.founderStory {
+  padding: 12rem 0;
+  background: var(--color-white);
+}
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 0 3.6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+/* Image */
+.imageCol {
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 38rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(43, 138, 62, 0.08);
+  position: relative;
+}
+
+.imageWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.2rem;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--color-white), var(--color-white)) padding-box,
+              linear-gradient(135deg, var(--color-green) 0%, var(--color-light-green) 100%) border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Story content */
+.founderHeading {
+  margin-top: 0.8rem;
+}
+
+.storyBody {
+  font-size: clamp(1.6rem, 1.8vw, 1.8rem);
+  color: var(--color-medium-grey);
+  line-height: 1.75;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+/* Contact strip */
+.contactStrip {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 3.2rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid rgba(43, 138, 62, 0.12);
+}
+
+.phoneLink {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.phoneLink svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  flex-shrink: 0;
+}
+
+.phoneLink:hover {
+  color: #1a5c28;
+}
+
+.contactDivider {
+  color: var(--color-medium-grey);
+  font-size: 1.6rem;
+}
+
+.contactNote {
+  font-size: 1.4rem;
+  color: var(--color-medium-grey);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .founderStory {
+    padding: 8rem 0;
+  }
+
+  .container {
+    padding: 0 2.4rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .imageWrapper {
+    max-width: 28rem;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .founderStory {
+    padding: 6.4rem 0;
+  }
+
+  .container {
+    padding: 0 1.8rem;
+  }
+
+  .imageWrapper {
+    max-width: 100%;
+  }
+}

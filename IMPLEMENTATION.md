@@ -29,7 +29,7 @@ Read this first at the start of every session. Update it after every session.
 | 3 | Contact page | `done` |
 | 4 | Thank You page | `done` |
 | 5 | Services page | `done` |
-| 6 | About page | `pending` |
+| 6 | About page | `done` |
 | 7 | Projects page | `pending` |
 
 ---
@@ -42,7 +42,7 @@ Read this first at the start of every session. Update it after every session.
 |---|---|---|---|
 | PageHero | `src/ui/PageHero/PageHero.jsx` | Services, About, Projects, Contact | `done` |
 | QuoteForm | `src/ui/QuoteForm/QuoteForm.jsx` | Home (BottomCTAForm), Contact | `done` |
-| BottomCTA | `src/ui/BottomCTA/BottomCTA.jsx` | About, Projects | `pending` |
+| BottomCTA | `src/ui/BottomCTA/BottomCTA.jsx` | About, Projects | `done` |
 | BottomCTAForm | `src/ui/BottomCTAForm/BottomCTAForm.jsx` | Home, Services | `done` |
 | ServiceBlock | `src/ui/ServiceBlock/ServiceBlock.jsx` | Services (data-driven) | `done` |
 | ProjectCard | `src/ui/ProjectCard/ProjectCard.jsx` | Projects (data-driven) | `pending` |
@@ -89,11 +89,11 @@ Read this first at the start of every session. Update it after every session.
 
 | Component | File | Status |
 |---|---|---|
-| FounderStory | `src/sections/FounderStory/FounderStory.jsx` | `pending` |
-| CredibilityStats | `src/sections/CredibilityStats/CredibilityStats.jsx` | `pending` |
-| Differentiators | `src/sections/Differentiators/Differentiators.jsx` | `pending` |
-| WhatWeAreNot | `src/sections/WhatWeAreNot/WhatWeAreNot.jsx` | `pending` |
-| Credentials | `src/sections/Credentials/Credentials.jsx` | `pending` |
+| FounderStory | `src/sections/FounderStory/FounderStory.jsx` | `done` |
+| CredibilityStats | `src/sections/CredibilityStats/CredibilityStats.jsx` | `done` |
+| Differentiators | `src/sections/Differentiators/Differentiators.jsx` | `done` |
+| WhatWeAreNot | `src/sections/WhatWeAreNot/WhatWeAreNot.jsx` | `done` |
+| Credentials | `src/sections/Credentials/Credentials.jsx` | `done` |
 
 ### Projects (`src/sections/`)
 
@@ -118,7 +118,7 @@ Read this first at the start of every session. Update it after every session.
 |---|---|---|---|
 | Home | `src/pages/Home/Home.jsx` | `/` | `done` |
 | Services | `src/pages/Services/Services.jsx` | `/services` | `done` |
-| About | `src/pages/About/About.jsx` | `/about` | `pending` |
+| About | `src/pages/About/About.jsx` | `/about` | `done` |
 | Projects | `src/pages/Projects/Projects.jsx` | `/projects` | `pending` |
 | Contact | `src/pages/Contact/Contact.jsx` | `/contact` | `done` |
 | Thank You | `src/pages/ThankYou/ThankYou.jsx` | `/thank-you` | `done` |
@@ -399,6 +399,18 @@ _None yet._
 ---
 
 ## Session Log
+
+### 2026-05-09 — About page implementation (Step 6)
+
+- **`src/sections/FounderStory/FounderStory.jsx`:** Photo (portrait, 4:5 ratio) left + story paragraphs right. Gradient-border image wrapper matching site card style. Phone tap-to-call strip with divider below copy. GSAP scroll-reveal with `animatedRef` guard on `[data-reveal]` elements
+- **`src/sections/CredibilityStats/CredibilityStats.jsx`:** 4-stat horizontal bar (15+ yrs, 3 yrs, referrals, one person). Desktop: 4-col, Mobile: 2×2. Vertical dividers between stats via `::before` on desktop. GSAP stagger entrance
+- **`src/sections/Differentiators/Differentiators.jsx`:** 4 cards (2×2 grid) with same gradient-border + `useCursorGlow` + GSAP stagger pattern as Home page cards. Icons: phone, shield, checkmark, thumbs-up
+- **`src/sections/WhatWeAreNot/WhatWeAreNot.jsx`:** 2-col layout (heading left, prose right). Green left-border accent on text block. `useScrollReveal` on both columns. No bullets, prose only per spec
+- **`src/sections/Credentials/Credentials.jsx`:** Greyscale logo strip (bc-licence, wcb, landscape-bc). `onError` fallback shows styled text label when image file missing. Logos show full color on hover
+- **`src/ui/BottomCTA/BottomCTA.jsx`:** Reusable green gradient CTA section. Accepts heading, subHeading, primaryLabel/Link, secondaryLabel/Href props. Shared with Projects page. Same visual style as MidPageCTA
+- **`src/pages/About/About.jsx`:** Composed in order: PageHero → FounderStory → CredibilityStats → Differentiators → WhatWeAreNot → ReviewsSection (reused from Home) → Credentials → BottomCTA. react-helmet-async for page SEO
+- **Note:** Credentials logo images (`bc-licence-logo.webp`, `wcb-clearance-logo.webp`, `landscape-bc-logo.webp`) directory exists but is empty — text fallbacks display until real logos are added
+- **Status:** About page complete — Step 7 (Projects page) is next
 
 ### 2026-05-09 — Services page implementation (Step 5)
 
