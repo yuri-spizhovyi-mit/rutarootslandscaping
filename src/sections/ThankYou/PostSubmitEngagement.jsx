@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
+import { useCursorGlow } from '../../hooks/useCursorGlow';
 import styles from './PostSubmitEngagement.module.css';
 
 const engagementLinks = [
@@ -29,6 +30,7 @@ const engagementLinks = [
 
 function PostSubmitEngagement() {
   const containerRef = useRef(null);
+  useCursorGlow(containerRef, `.${styles.card}`);
 
   useEffect(() => {
     if (!containerRef.current) return;

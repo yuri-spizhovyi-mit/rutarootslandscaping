@@ -1,6 +1,7 @@
 .reviewRequest {
   padding: 12rem 0;
-  background: linear-gradient(135deg, rgba(43, 138, 62, 0.03) 0%, rgba(200, 90, 23, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(43, 138, 62, 0.08) 0%, rgba(200, 90, 23, 0.08) 100%);
+  border-top: 2px solid rgba(43, 138, 62, 0.1);
 }
 
 .container {
@@ -20,9 +21,10 @@
 
 .body {
   font-size: 1.8rem;
-  color: var(--color-medium-grey);
+  color: var(--color-dark-grey);
   line-height: 1.6;
   margin-bottom: 3.2rem;
+  font-weight: 500;
 }
 
 .reviewLink {
