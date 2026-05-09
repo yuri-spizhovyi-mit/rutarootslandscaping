@@ -11,29 +11,64 @@
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 3.6rem;
+  width: 100%;
+}
+
+.card {
   text-align: center;
+  padding: 5.6rem;
+  border-radius: 1.2rem;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--color-white), var(--color-white)) padding-box,
+              linear-gradient(135deg, var(--color-green) 0%, var(--color-light-green) 100%) border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 8px 40px rgba(43, 138, 62, 0.15);
+  animation: cardReveal 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+}
+
+@keyframes cardReveal {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .iconWrapper {
   margin-bottom: 3.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.iconWrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(43, 138, 62, 0.25) 0%, transparent 70%);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.35); opacity: 0.35; }
 }
 
 .checkmark {
   width: 6rem;
   height: 6rem;
   color: var(--color-green);
-  animation: checkmarkScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px rgba(43, 138, 62, 0.5));
+  animation: checkmarkScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
 }
 
 @keyframes checkmarkScale {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .heading {
@@ -42,14 +77,14 @@
   color: var(--color-dark-grey);
   margin-bottom: 2.4rem;
   font-weight: 700;
+  text-shadow: 0 0 30px rgba(43, 138, 62, 0.15);
 }
 
 .body {
   font-size: 1.8rem;
-  color: var(--color-dark-grey);
+  color: var(--color-medium-grey);
   line-height: 1.6;
   margin-bottom: 1.6rem;
-  font-weight: 500;
 }
 
 .body:last-child {
@@ -75,6 +110,10 @@
 
   .container {
     padding: 0 1.8rem;
+  }
+
+  .card {
+    padding: 4rem 3.2rem;
   }
 
   .iconWrapper {
@@ -103,6 +142,10 @@
 
   .container {
     padding: 0 1.2rem;
+  }
+
+  .card {
+    padding: 3.2rem 2rem;
   }
 
   .checkmark {

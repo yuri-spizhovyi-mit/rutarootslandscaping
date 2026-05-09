@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
+import { useCursorGlow } from '../../hooks/useCursorGlow';
 import styles from './PostSubmitEngagement.module.css';
 
 const engagementLinks = [
@@ -45,22 +46,22 @@ const engagementLinks = [
 
 function PostSubmitEngagement() {
   const containerRef = useRef(null);
+  const animatedRef = useRef(false);
+  useCursorGlow(containerRef, `.${styles.card}`);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !animatedRef.current) {
+          animatedRef.current = true;
           const cards = containerRef.current.querySelectorAll(`.${styles.card}`);
-          gsap.from(cards, {
-            opacity: 0,
-            y: 40,
-            duration: 0.8,
-            delay: 0.2,
-            stagger: 0.12,
-            ease: 'power2.out',
-          });
+          gsap.fromTo(
+            cards,
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.2, stagger: 0.12, ease: 'power2.out', clearProps: 'transform' }
+          );
           observer.unobserve(entry.target);
         }
       },

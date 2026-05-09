@@ -4,9 +4,9 @@
 palette, typography, spacing, component patterns, and animation library.
 Ensure visual consistency across the entire site.
 
-**Last Updated:** 2026-04-26  
+**Last Updated:** 2026-05-09  
 **Archive Branch Reference:** `archive/current-site`  
-**Current Build:** Home page complete — all patterns below are live
+**Current Build:** Home, Contact, Thank You pages complete — all patterns below are live and tested
 
 ---
 
@@ -275,30 +275,34 @@ return <h2 ref={headingRef}>Title</h2>;
 For card groups (GSAP):
 
 ```jsx
+const cardsRef = useRef(null);
+const animatedRef = useRef(false); // prevents double-fire in React StrictMode
+
 useEffect(() => {
-  const cards = cardsRef.current.querySelectorAll(`.${styles.card}`);
+  if (!cardsRef.current) return;
   const observer = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      gsap.from(cards, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        stagger: 0.15,  // 150ms between cards
-        ease: 'power2.out',
-      });
+    if (entry.isIntersecting && !animatedRef.current) {
+      animatedRef.current = true;
+      const cards = cardsRef.current.querySelectorAll(`.${styles.card}`);
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.8, delay: 0.2, stagger: 0.15, ease: 'power2.out', clearProps: 'transform' }
+      );
       observer.unobserve(entry.target);
     }
-  });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
   observer.observe(cardsRef.current);
+  return () => observer.disconnect();
 }, []);
 ```
 
 **Specs:**
-- Opacity: 0 → 1
-- Y-axis: 40px up
-- Duration: 0.8s
-- Stagger: 0.12s (tight grids), 0.15s (loose grids)
-- Fires once per element
+- Use `gsap.fromTo()` — not `gsap.from()` — explicit end state prevents StrictMode double-fire issue
+- `animatedRef` guard ensures animation fires exactly once even when effects re-run
+- `clearProps: 'transform'` removes inline transform after animation so CSS hover transitions work
+- Opacity: 0 → 1, Y-axis: 40px → 0
+- Duration: 0.8s, stagger: 0.12s (tight grids), 0.15s (loose grids)
 
 ### 4. Cursor-Reactive Glow Shadows
 
@@ -333,7 +337,7 @@ return (
 - Dynamic shadow follows cursor position
 - One listener per container (efficient)
 - `requestAnimationFrame` for smooth tracking
-- Applied to: ServicesPreview cards, WhyRutaRoots blocks
+- Applied to: ServicesPreview cards, WhyRutaRoots blocks, NextSteps steps, PostSubmitEngagement cards
 
 ### 5. Green Glow Text-Shadow
 
@@ -359,17 +363,17 @@ return (
 ```css
 .card {
   border: 2px solid transparent;
-  background: linear-gradient(white, white) padding-box,
-    linear-gradient(135deg, var(--color-green) 0%,
-      var(--color-terracotta) 100%) border-box;
+  background: linear-gradient(var(--color-white), var(--color-white)) padding-box,
+              linear-gradient(135deg, var(--color-green) 0%, var(--color-light-green) 100%) border-box;
   background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
 }
 ```
 
 **Specs:**
-- Inner: White/light background
-- Border: Green→Terracotta gradient
-- Applied to: Cards, blocks, interactive elements
+- Inner: White background via `padding-box`
+- Border: Green→Olive gradient (`--color-green` → `--color-light-green`)
+- Applied to: ServicesPreview cards, WhyRutaRoots blocks, all ThankYou section cards
 
 ### 7. Glassmorphic Buttons (Frosted Glass)
 

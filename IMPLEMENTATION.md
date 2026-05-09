@@ -77,10 +77,10 @@ Read this first at the start of every session. Update it after every session.
 
 | Component | File | Status |
 |---|---|---|
-| ThankYouConfirmation | `src/sections/ThankYou/ThankYouConfirmation.jsx` | `pending` |
-| NextSteps | `src/sections/ThankYou/NextSteps.jsx` | `pending` |
-| PostSubmitEngagement | `src/sections/ThankYou/PostSubmitEngagement.jsx` | `pending` |
-| ReviewRequest | `src/sections/ThankYou/ReviewRequest.jsx` | `pending` |
+| ThankYouConfirmation | `src/sections/ThankYou/ThankYouConfirmation.jsx` | `done` |
+| NextSteps | `src/sections/ThankYou/NextSteps.jsx` | `done` |
+| PostSubmitEngagement | `src/sections/ThankYou/PostSubmitEngagement.jsx` | `done` |
+| ReviewRequest | `src/sections/ThankYou/ReviewRequest.jsx` | `done` |
 
 ### About (`src/sections/`)
 
@@ -117,8 +117,8 @@ Read this first at the start of every session. Update it after every session.
 | Services | `src/pages/Services/Services.jsx` | `/services` | `pending` |
 | About | `src/pages/About/About.jsx` | `/about` | `pending` |
 | Projects | `src/pages/Projects/Projects.jsx` | `/projects` | `pending` |
-| Contact | `src/pages/Contact/Contact.jsx` | `/contact` | `pending` |
-| Thank You | `src/pages/ThankYou/ThankYou.jsx` | `/thank-you` | `pending` |
+| Contact | `src/pages/Contact/Contact.jsx` | `/contact` | `done` |
+| Thank You | `src/pages/ThankYou/ThankYou.jsx` | `/thank-you` | `done` |
 
 ---
 
@@ -126,9 +126,9 @@ Read this first at the start of every session. Update it after every session.
 
 | Package | Purpose | Status |
 |---|---|---|
-| `react-hook-form` | Form validation (QuoteForm) | `pending` |
-| `react-helmet-async` | Per-page SEO meta tags | `pending` |
-| `@emailjs/browser` | Contact form email delivery | `pending` |
+| `react-hook-form` | Form validation (QuoteForm) | `done` |
+| `react-helmet-async` | Per-page SEO meta tags | `done` |
+| `@emailjs/browser` | Contact form email delivery | `done` |
 
 > React Router v6 is already installed. Swiper and Lenis are already installed per SKILL.md context.
 
@@ -205,7 +205,7 @@ function MyComponent() {
 ```
 
 **Performance:** Uses `requestAnimationFrame` for 60fps smooth tracking. One listener per container (efficient).  
-**Applied to:** ServicesPreview cards, WhyRutaRoots blocks
+**Applied to:** ServicesPreview cards, WhyRutaRoots blocks, NextSteps steps, PostSubmitEngagement cards
 
 ---
 
@@ -231,20 +231,19 @@ import gsap from 'gsap';
 
 function MyComponent() {
   const cardsRef = useRef(null);
+  const animatedRef = useRef(false);  // prevents double-fire in React StrictMode
   
   useEffect(() => {
     if (!cardsRef.current) return;
-    const cards = cardsRef.current.querySelectorAll(`.${styles.card}`);
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        gsap.from(cards, {
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          delay: 0.2,
-          stagger: 0.15,  // 150ms between each card
-          ease: 'power2.out',
-        });
+      if (entry.isIntersecting && !animatedRef.current) {
+        animatedRef.current = true;
+        const cards = cardsRef.current.querySelectorAll(`.${styles.card}`);
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 0.8, delay: 0.2, stagger: 0.15, ease: 'power2.out', clearProps: 'transform' }
+        );
         observer.unobserve(entry.target);
       }
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -397,6 +396,16 @@ _None yet._
 ---
 
 ## Session Log
+
+### 2026-05-09 — Thank You page visual quality overhaul (Step 4)
+
+- **ThankYouConfirmation:** Wrapped content in gradient-border card; added radial glow pulse behind checkmark (`glowPulse` keyframe + `drop-shadow` filter); added green `text-shadow` on heading; section stays white with card as the visual container
+- **NextSteps:** Full gradient border card pattern (matching ServicesPreview/WhyRutaRoots); added `useCursorGlow` for cursor-reactive shadows; `::before` hover overlay + `::after` top-bar slide-in; icon wrapper replaced from flat `#e8f0ed` to gradient; hover is now `translateY(-8px) scale(1.02)` with full glow shadow; step number glows, title turns green, description lightens on hover
+- **PostSubmitEngagement:** Same gradient border + cursor glow treatment; card links upgraded with sliding underline matching ServicesPreview pattern
+- **ReviewRequest:** Content wrapped in gradient-border card; CTA upgraded from outlined link to solid green gradient button with lift hover effect
+- **Bug fix:** Both NextSteps and PostSubmitEngagement showed empty card areas — React StrictMode double-invokes effects, causing two `IntersectionObserver` instances to fire and `gsap.from()` to reset cards to `opacity: 0` mid-animation. Fixed with `animatedRef = useRef(false)` guard + `gsap.fromTo()` with explicit end values + `clearProps: 'transform'`
+- **Packages confirmed installed:** `react-hook-form`, `react-helmet-async`, `@emailjs/browser` — all in `package.json`
+- **Status:** Thank You page fully rebuilt to match Home page visual quality — ready for Services page (Step 5)
 
 ### 2026-04-26 — Contact page implementation (Step 3)
 

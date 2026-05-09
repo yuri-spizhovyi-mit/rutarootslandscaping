@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import { useCursorGlow } from '../../hooks/useCursorGlow';
 import styles from './NextSteps.module.css';
 
 const steps = [
@@ -22,22 +23,22 @@ const steps = [
 
 function NextSteps() {
   const containerRef = useRef(null);
+  const animatedRef = useRef(false);
+  useCursorGlow(containerRef, `.${styles.step}`);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          const steps = containerRef.current.querySelectorAll(`.${styles.step}`);
-          gsap.from(steps, {
-            opacity: 0,
-            y: 40,
-            duration: 0.8,
-            delay: 0.2,
-            stagger: 0.15,
-            ease: 'power2.out',
-          });
+        if (entry.isIntersecting && !animatedRef.current) {
+          animatedRef.current = true;
+          const stepEls = containerRef.current.querySelectorAll(`.${styles.step}`);
+          gsap.fromTo(
+            stepEls,
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.2, stagger: 0.15, ease: 'power2.out', clearProps: 'transform' }
+          );
           observer.unobserve(entry.target);
         }
       },
