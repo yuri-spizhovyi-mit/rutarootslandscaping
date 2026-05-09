@@ -1,0 +1,151 @@
+.engagement {
+  padding: 12rem 0;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.6rem;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
+}
+
+.card {
+  padding: 3.2rem;
+  background-color: #fafafa;
+  border-radius: 1.2rem;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  border-color: var(--color-green);
+  background-color: var(--color-white);
+  box-shadow: 0 12px 32px rgba(43, 138, 62, 0.12);
+  transform: translateY(-6px);
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-dark-grey);
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
+}
+
+.cardDescription {
+  font-size: 1.5rem;
+  color: var(--color-medium-grey);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.cardLink {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-green);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  min-height: 4.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.cardLink:hover {
+  color: var(--color-terracotta);
+}
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    gap: 2.4rem;
+  }
+
+  .card {
+    padding: 2.4rem;
+  }
+
+  .cardTitle {
+    font-size: 1.6rem;
+  }
+
+  .cardDescription {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .engagement {
+    padding: 8rem 0;
+  }
+
+  .container {
+    padding: 0 1.8rem;
+  }
+
+  .heading {
+    margin-bottom: 4rem;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.5rem;
+  }
+
+  .cardDescription {
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .engagement {
+    padding: 6rem 0;
+  }
+
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .heading {
+    margin-bottom: 3.2rem;
+  }
+
+  .card {
+    padding: 1.6rem;
+  }
+
+  .cardTitle {
+    font-size: 1.4rem;
+  }
+
+  .cardDescription {
+    font-size: 1.3rem;
+  }
+
+  .cardLink {
+    font-size: 1.5rem;
+  }
+}

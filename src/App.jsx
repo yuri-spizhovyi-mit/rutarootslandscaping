@@ -9,6 +9,7 @@ import PageTitleListener from "./pages/PageTitleListener/PageTitleListener";
 import PageLoader from "./pages/PageLoader/PageLoader";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
+import { useScrollToTop } from "./hooks/useScrollToTop";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Services = lazy(() => import("./pages/Services/Services"));
@@ -17,35 +18,43 @@ const Projects = lazy(() => import("./pages/Projects/Projects"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const ThankYou = lazy(() => import("./pages/ThankYou/ThankYou"));
 
+function AppContent() {
+  useScrollToTop();
+
+  return (
+    <>
+      <Header />
+      <PageTitleListener>
+        <Main>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/thank-you" element={<ThankYou />} />
+              <Route
+                path="*"
+                element={<Navigate replace to="/page-not-found" />}
+              />
+              <Route path="/page-not-found" element={<PageNotFound />} />
+            </Routes>
+          </Suspense>
+        </Main>
+      </PageTitleListener>
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   useSmoothScroll();
 
   return (
-    <>
-      <BrowserRouter>
-        <Header />
-        <PageTitleListener>
-          <Main>
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route index element={<Home />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/thank-you" element={<ThankYou />} />
-                <Route
-                  path="*"
-                  element={<Navigate replace to="/page-not-found" />}
-                />
-                <Route path="/page-not-found" element={<PageNotFound />} />
-              </Routes>
-            </Suspense>
-          </Main>
-        </PageTitleListener>
-        <Footer />
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
 
