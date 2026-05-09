@@ -28,7 +28,7 @@ Read this first at the start of every session. Update it after every session.
 | 2 | Home page rebuild | `done` |
 | 3 | Contact page | `done` |
 | 4 | Thank You page | `done` |
-| 5 | Services page | `pending` |
+| 5 | Services page | `done` |
 | 6 | About page | `pending` |
 | 7 | Projects page | `pending` |
 
@@ -40,11 +40,11 @@ Read this first at the start of every session. Update it after every session.
 
 | Component | File | Shared By | Status |
 |---|---|---|---|
-| PageHero | `src/ui/PageHero/PageHero.jsx` | Services, About, Projects, Contact | `pending` |
+| PageHero | `src/ui/PageHero/PageHero.jsx` | Services, About, Projects, Contact | `done` |
 | QuoteForm | `src/ui/QuoteForm/QuoteForm.jsx` | Home (BottomCTAForm), Contact | `done` |
 | BottomCTA | `src/ui/BottomCTA/BottomCTA.jsx` | About, Projects | `pending` |
 | BottomCTAForm | `src/ui/BottomCTAForm/BottomCTAForm.jsx` | Home, Services | `done` |
-| ServiceBlock | `src/ui/ServiceBlock/ServiceBlock.jsx` | Services (data-driven) | `pending` |
+| ServiceBlock | `src/ui/ServiceBlock/ServiceBlock.jsx` | Services (data-driven) | `done` |
 | ProjectCard | `src/ui/ProjectCard/ProjectCard.jsx` | Projects (data-driven) | `pending` |
 
 ### Home (`src/sections/`)
@@ -62,8 +62,11 @@ Read this first at the start of every session. Update it after every session.
 
 | Component | File | Status |
 |---|---|---|
-| ServicesHero | via `src/ui/PageHero/PageHero.jsx` | `pending` |
-| ServicesList | `src/sections/ServicesList/ServicesList.jsx` | `pending` |
+| ServicesHero | via `src/ui/PageHero/PageHero.jsx` | `done` |
+| ServiceAnchorNav | `src/sections/ServiceAnchorNav/ServiceAnchorNav.jsx` | `done` |
+| ServiceBlock | `src/ui/ServiceBlock/ServiceBlock.jsx` (×5 instances) | `done` |
+| MidPageCTA | `src/sections/MidPageCTA/MidPageCTA.jsx` | `done` |
+| ServicesFAQ | `src/sections/ServicesFAQ/ServicesFAQ.jsx` | `done` |
 
 ### Contact (`src/sections/`)
 
@@ -114,7 +117,7 @@ Read this first at the start of every session. Update it after every session.
 | Page | File | Route | Status |
 |---|---|---|---|
 | Home | `src/pages/Home/Home.jsx` | `/` | `done` |
-| Services | `src/pages/Services/Services.jsx` | `/services` | `pending` |
+| Services | `src/pages/Services/Services.jsx` | `/services` | `done` |
 | About | `src/pages/About/About.jsx` | `/about` | `pending` |
 | Projects | `src/pages/Projects/Projects.jsx` | `/projects` | `pending` |
 | Contact | `src/pages/Contact/Contact.jsx` | `/contact` | `done` |
@@ -396,6 +399,18 @@ _None yet._
 ---
 
 ## Session Log
+
+### 2026-05-09 — Services page implementation (Step 5)
+
+- **`src/data/services.js`:** Data file with 5 service objects + 7 FAQ items. Each service has: id, anchor, label, h2, description, okanaganNote, inclusions, ctaLabel, ctaLink, imageDesktop, imageMobile, imageAlt, imageRight. landscape-design adds processSteps + reassuranceItems; seasonal-cleanup uses splitInclusions (spring/fall) + urgencyNote + upsellNote
+- **`src/ui/PageHero/PageHero.jsx`:** Compact utility header (≤120px visible on desktop). Accepts h1, subHeading, breadcrumbs props. GSAP entrance animation on all elements via `[data-animate]` selector. Reusable on About and Projects pages
+- **`src/sections/ServiceAnchorNav/ServiceAnchorNav.jsx`:** Sticky horizontal pill nav at `top: 9.8rem`. IntersectionObserver with `rootMargin: '-25% 0px -65% 0px'` tracks active section. Horizontally scrollable on mobile with hidden scrollbar
+- **`src/ui/ServiceBlock/ServiceBlock.jsx`:** Data-driven alternating layout component. imageRight prop controls which side the image appears on (CSS `order` for desktop swap, `order: -1` on mobile for image-always-top). Handles: regular inclusions (2-col grid), splitInclusions (spring/fall columns for seasonal cleanup), processSteps strip (landscape design), reassuranceItems bar (landscape design), urgencyNote badge (terracotta), upsellNote below CTA. Okanagan callout rendered as green left-border box. GSAP scroll-reveal on `[data-reveal]` elements with animatedRef guard. `scroll-margin-top: 17rem` on each section to offset fixed header + sticky nav
+- **`src/sections/MidPageCTA/MidPageCTA.jsx`:** Green gradient banner between hardscaping and seasonal cleanup. Primary white CTA (call) + glassmorphic secondary CTA (contact). Decorative radial gradients via `::before` / `::after`
+- **`src/sections/ServicesFAQ/ServicesFAQ.jsx`:** Uses existing `Accordion` + `AccordionItem` components from `src/ui/Accordion/`. Injects `application/ld+json` FAQ schema via `react-helmet-async` for Google rich snippet eligibility
+- **`src/pages/Services/Services.jsx`:** Composes all sections. MidPageCTA inserted before services[3] (seasonal-cleanup) via map index check. altBg alternates by index for visual section rhythm. react-helmet-async for page title + meta description
+- **Bug fix:** services.js had unescaped apostrophe in landscape-design description (`that's`) inside single-quoted string — escaped to `that\'s`
+- **Status:** Services page fully built — all 5 service blocks, sticky anchor nav, mid-page CTA, FAQ with schema markup, bottom form
 
 ### 2026-05-09 — Thank You page visual quality overhaul (Step 4)
 

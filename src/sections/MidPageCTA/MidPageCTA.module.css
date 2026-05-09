@@ -1,0 +1,131 @@
+.midCta {
+  background: linear-gradient(135deg, var(--color-green) 0%, #1a5c28 60%, #0f3d18 100%);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.midCta::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 50rem;
+  height: 50rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.midCta::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -5%;
+  width: 40rem;
+  height: 40rem;
+  background: radial-gradient(circle, rgba(150, 139, 57, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 3.6rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heading {
+  font-size: clamp(3rem, 4vw, 4.4rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.2rem;
+}
+
+.subHeading {
+  font-size: clamp(1.6rem, 1.8vw, 1.9rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  margin-bottom: 3.6rem;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-block;
+  padding: 1.5rem 3.2rem;
+  background: white;
+  color: var(--color-green);
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 700;
+  border-radius: 0.6rem;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.01em;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+}
+
+.ctaSecondary {
+  display: inline-block;
+  padding: 1.5rem 2.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .midCta {
+    padding: 6rem 0;
+  }
+
+  .container {
+    padding: 0 2.4rem;
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .midCta {
+    padding: 5.2rem 0;
+  }
+
+  .container {
+    padding: 0 1.8rem;
+  }
+}
