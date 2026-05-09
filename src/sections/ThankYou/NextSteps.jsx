@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { useCursorGlow } from '../../hooks/useCursorGlow';
 import styles from './NextSteps.module.css';
 
 const steps = [
@@ -23,7 +22,6 @@ const steps = [
 
 function NextSteps() {
   const containerRef = useRef(null);
-  useCursorGlow(containerRef, `.${styles.step}`);
 
   useEffect(() => {
     if (!containerRef.current) return;
