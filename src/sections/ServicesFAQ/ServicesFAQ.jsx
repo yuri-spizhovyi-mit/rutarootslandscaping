@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Accordion from '../../ui/Accordion/Accordion';
 import AccordionItem from '../../ui/Accordion/AccordionItem';
