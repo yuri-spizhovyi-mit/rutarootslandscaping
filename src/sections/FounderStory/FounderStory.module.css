@@ -28,21 +28,11 @@
   border-radius: 1.2rem;
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(43, 138, 62, 0.08);
-  position: relative;
-}
-
-.imageWrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 1.2rem;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   background: linear-gradient(var(--color-white), var(--color-white)) padding-box,
               linear-gradient(135deg, var(--color-green) 0%, var(--color-light-green) 100%) border-box;
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
-  pointer-events: none;
-  z-index: 1;
 }
 
 .portrait {
