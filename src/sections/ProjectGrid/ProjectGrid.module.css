@@ -1,0 +1,53 @@
+.projectGrid {
+  padding: 4rem 0 12rem;
+  background: var(--color-white);
+}
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 0 3.6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+  margin-top: 3.6rem;
+}
+
+.empty {
+  padding: 8rem 0;
+  text-align: center;
+}
+
+.empty p {
+  font-size: 1.6rem;
+  color: var(--color-medium-grey);
+}
+
+@media (max-width: 768px) {
+  .projectGrid {
+    padding: 3.2rem 0 8rem;
+  }
+
+  .container {
+    padding: 0 2.4rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectGrid {
+    padding: 2.4rem 0 6.4rem;
+  }
+
+  .container {
+    padding: 0 1.8rem;
+  }
+}

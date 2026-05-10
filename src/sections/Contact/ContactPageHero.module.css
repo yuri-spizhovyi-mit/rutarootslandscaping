@@ -46,10 +46,19 @@
 }
 
 .heading {
-  font-size: clamp(3.6rem, 4.4vw, 5.2rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.28em;
+  font-size: clamp(5.2rem, 7.4vw, 11.2rem);
+  font-weight: 700;
   line-height: 1.2;
   color: var(--color-white);
-  text-shadow: 0 0 40px rgba(0, 0, 0, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 60px rgba(43, 138, 62, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heading span {
+  display: inline-block;
 }
 
 @media (max-width: 768px) {
@@ -66,9 +75,6 @@
     padding: 0 1.8rem;
   }
 
-  .heading {
-    font-size: clamp(2.4rem, 3vw, 3.6rem);
-  }
 }
 
 @media (max-width: 480px) {
@@ -85,7 +91,4 @@
     padding: 0 1.2rem;
   }
 
-  .heading {
-    font-size: clamp(2rem, 2.5vw, 2.8rem);
-  }
 }

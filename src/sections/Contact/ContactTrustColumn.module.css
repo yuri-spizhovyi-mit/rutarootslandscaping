@@ -1,20 +1,40 @@
 .trustColumn {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card {
+  width: 100%;
+  max-width: 38rem;
+  border-radius: 1.6rem;
+  padding: 3.6rem;
+  text-align: center;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--color-white), var(--color-white)) padding-box,
+              linear-gradient(135deg, var(--color-green) 0%, var(--color-light-green) 100%) border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 8px 32px rgba(43, 138, 62, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 2.8rem;
 }
 
 /* Phone block */
 .phoneBlock {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .phoneLabel {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--color-dark-grey);
+  color: var(--color-medium-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .phoneNumber {
@@ -25,6 +45,7 @@
   display: inline-block;
   position: relative;
   transition: color 0.3s ease;
+  line-height: 1.1;
 }
 
 .phoneNumber:hover {
@@ -34,14 +55,15 @@
 .phoneNumber::after {
   content: "";
   position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 100%;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
   height: 2px;
   background: linear-gradient(
     90deg,
+    transparent,
     var(--color-green),
-    var(--color-green) 50%,
     transparent
   );
   transition: background 0.3s ease;
@@ -50,8 +72,8 @@
 .phoneNumber:hover::after {
   background: linear-gradient(
     90deg,
+    transparent,
     var(--color-terracotta),
-    var(--color-terracotta) 50%,
     transparent
   );
 }
@@ -67,8 +89,8 @@
   height: 1px;
   background: linear-gradient(
     90deg,
-    var(--color-green),
-    var(--color-green) 30%,
+    transparent,
+    rgba(43, 138, 62, 0.3),
     transparent
   );
 }
@@ -77,33 +99,20 @@
 .serviceArea {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 0.8rem;
 }
 
 .serviceAreaLabel {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--color-dark-grey);
+  color: var(--color-medium-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 @media (max-width: 768px) {
-  .trustColumn {
-    gap: 2.4rem;
-  }
-
-  .phoneLabel {
-    font-size: 1.4rem;
-  }
-
-  .phoneNumber {
-    font-size: clamp(2rem, 2.5vw, 2.8rem);
-  }
-
-  .hours {
-    font-size: 1.2rem;
-  }
-
-  .serviceAreaLabel {
-    font-size: 1.4rem;
+  .card {
+    padding: 2.8rem 2.4rem;
+    max-width: 100%;
   }
 }

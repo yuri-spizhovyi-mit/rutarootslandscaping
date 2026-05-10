@@ -18,7 +18,9 @@ function ContactPageHero() {
       <div className={styles.heroOverlay} />
       <div className={styles.container}>
         <h1 className={styles.heading} ref={titleRef}>
-          Tell us about your project
+          {['Tell', 'us', 'about', 'your', 'project'].map((word, i) => (
+            <span key={i}>{word}</span>
+          ))}
         </h1>
       </div>
     </section>

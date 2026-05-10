@@ -7,11 +7,6 @@ import ServicesFAQ from '../../sections/ServicesFAQ/ServicesFAQ';
 import BottomCTAForm from '../../ui/BottomCTAForm/BottomCTAForm';
 import { services } from '../../data/services';
 
-const breadcrumbs = [
-  { label: 'Home', href: '/' },
-  { label: 'Services' },
-];
-
 export default function Services() {
   return (
     <>
@@ -24,9 +19,8 @@ export default function Services() {
       </Helmet>
 
       <PageHero
-        h1="Landscaping services in West Kelowna & Kelowna"
+        h1="Landscaping services in Kelowna & West Kelowna"
         subHeading="Reliable landscaping services across West Kelowna & Kelowna. Lawn care, design, hardscaping, and seasonal cleanup."
-        breadcrumbs={breadcrumbs}
       />
 
       <ServiceAnchorNav />

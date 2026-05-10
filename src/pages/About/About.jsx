@@ -8,11 +8,6 @@ import ReviewsSection from '../../sections/Reviews/Reviews';
 import Credentials from '../../sections/Credentials/Credentials';
 import BottomCTA from '../../ui/BottomCTA/BottomCTA';
 
-const breadcrumbs = [
-  { label: 'Home', href: '/' },
-  { label: 'About' },
-];
-
 export default function About() {
   return (
     <>
@@ -25,9 +20,9 @@ export default function About() {
       </Helmet>
 
       <PageHero
-        h1="Why West Kelowna homeowners choose Ruta Roots"
+        h1="Why Kelowna homeowners choose Ruta Roots"
         subHeading="We're a small local operation — just me, my experience, and a focus on getting the job done right. No rotating crew, no subcontractors, no middlemen."
-        breadcrumbs={breadcrumbs}
+        bgImage="/images/sections/hero/hero-1920-about.webp"
       />
 
       <FounderStory />

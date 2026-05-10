@@ -1,40 +1,41 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import gsap from 'gsap';
+import { useRef } from 'react';
+import { useParallax } from '../../hooks/useParallax';
+import { useGsapAnimation } from '../../hooks/useGsapAnimation';
+import { createTitleInAnimation, createSubtitleInAnimation } from '../../utils/animations/titleAnimations';
 import styles from './PageHero.module.css';
 
-function PageHero({ h1, subHeading, breadcrumbs }) {
-  const heroRef = useRef(null);
+const DEFAULT_BG = '/images/sections/hero/hero-1920.webp';
 
-  useEffect(() => {
-    if (!heroRef.current) return;
-    const elements = heroRef.current.querySelectorAll('[data-animate]');
-    gsap.fromTo(
-      elements,
-      { opacity: 0, y: 16 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }
-    );
+function PageHero({ h1, subHeading, bgImage = DEFAULT_BG }) {
+  const titleRef = useRef(null);
+  const subRef = useRef(null);
+  const bgRef = useParallax(0.5);
+
+  useGsapAnimation(() => {
+    createTitleInAnimation(titleRef);
+    if (subRef.current) createSubtitleInAnimation(subRef, 0.4);
   }, []);
 
+  const words = h1.split(' ');
+
   return (
-    <section className={styles.pageHero} ref={heroRef}>
+    <section className={styles.pageHero}>
+      <div
+        className={styles.bg}
+        ref={bgRef}
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
+      <div className={styles.overlay} />
+
       <div className={styles.container}>
-        {breadcrumbs && (
-          <nav className={styles.breadcrumb} aria-label="Breadcrumb" data-animate>
-            {breadcrumbs.map((crumb, index) => (
-              <span key={index} className={styles.crumbWrapper}>
-                {index > 0 && <span className={styles.separator}>›</span>}
-                {crumb.href ? (
-                  <Link to={crumb.href} className={styles.crumbLink}>{crumb.label}</Link>
-                ) : (
-                  <span className={styles.crumbCurrent}>{crumb.label}</span>
-                )}
-              </span>
-            ))}
-          </nav>
+        <h1 className={styles.heading} ref={titleRef}>
+          {words.map((word, i) => (
+            <span key={i}>{word}</span>
+          ))}
+        </h1>
+        {subHeading && (
+          <p className={styles.subHeading} ref={subRef}>{subHeading}</p>
         )}
-        <h1 className={styles.heading} data-animate>{h1}</h1>
-        {subHeading && <p className={styles.subHeading} data-animate>{subHeading}</p>}
       </div>
     </section>
   );

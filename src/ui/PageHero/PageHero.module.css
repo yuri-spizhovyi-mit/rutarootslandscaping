@@ -1,18 +1,49 @@
 .pageHero {
-  background: linear-gradient(135deg, #f5f7f5 0%, #eef2ee 100%);
-  padding: 13.8rem 0 4rem;
-  border-bottom: 1px solid rgba(43, 138, 62, 0.1);
+  padding: 9.8rem 0 0;
+  display: grid;
+  place-items: end center;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.28) 100%);
+  z-index: 1;
 }
 
 .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   max-width: 110rem;
   margin: 0 auto;
-  padding: 0 3.6rem;
+  padding: 0 3.6rem 6.4rem;
+  text-align: center;
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   margin-bottom: 1.6rem;
   flex-wrap: wrap;
@@ -25,59 +56,62 @@
 }
 
 .separator {
-  font-size: 1.4rem;
-  color: var(--color-medium-grey);
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1;
 }
 
 .crumbLink {
-  font-size: 1.4rem;
-  color: var(--color-medium-grey);
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .crumbLink:hover {
-  color: var(--color-green);
+  color: rgba(255, 255, 255, 1);
 }
 
 .crumbCurrent {
-  font-size: 1.4rem;
-  color: var(--color-dark-grey);
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
 }
 
 .heading {
-  font-size: clamp(2.8rem, 3.6vw, 4.4rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.28em;
+  font-size: clamp(5.2rem, 7.4vw, 11.2rem);
   font-weight: 700;
-  color: var(--color-dark-grey);
+  color: var(--color-white);
   line-height: 1.2;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+  text-shadow: 0 0 60px rgba(43, 138, 62, 0.35), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heading span {
+  display: inline-block;
 }
 
 .subHeading {
-  font-size: clamp(1.6rem, 1.8vw, 1.8rem);
-  color: var(--color-medium-grey);
+  font-size: clamp(1.6rem, 2vw, 2.1rem);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
   max-width: 72rem;
+  margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
-  .pageHero {
-    padding: 11.8rem 0 3.2rem;
-  }
-
   .container {
-    padding: 0 2.4rem;
+    padding: 0 2.4rem 5.6rem;
   }
 }
 
 @media (max-width: 480px) {
-  .pageHero {
-    padding: 11rem 0 2.8rem;
-  }
-
   .container {
-    padding: 0 1.8rem;
+    padding: 0 1.8rem 4.8rem;
   }
 }
